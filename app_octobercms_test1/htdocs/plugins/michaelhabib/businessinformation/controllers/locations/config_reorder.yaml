@@ -1,0 +1,4 @@
+title: Locations
+modelClass: MichaelHabib\BusinessInformation\Models\Location
+toolbar:
+    buttons: reorder_toolbar

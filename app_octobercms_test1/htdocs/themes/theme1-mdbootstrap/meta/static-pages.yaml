@@ -1,0 +1,12 @@
+static-pages:
+    home: {  }
+    services:
+        services-service-1: {  }
+        services-service-2: {  }
+        services-service-3: {  }
+        services-service-4: {  }
+        services-service-5: {  }
+        services-service-6: {  }
+        services-service-7: {  }
+        services-service-8: {  }
+    maintanace-mode: {  }

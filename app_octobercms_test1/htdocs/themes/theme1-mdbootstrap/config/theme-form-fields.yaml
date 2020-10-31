@@ -1,0 +1,130 @@
+tabs:
+    fields:
+        ####################################################
+        # Tab: Info
+        ####################################################
+        info_section:
+            tab: Info
+            label: General
+            type: section
+        business_name:
+            tab: Info
+            label: Business Name
+            type: text
+            span: left
+            default: 
+        business_legal_name:
+            tab: Info
+            label: Business Legal Name
+            type: text
+            span: right
+            default: Company Name PTY LTD
+            comment: Business full legal name for use in footer copyright notice.
+        business_tagline:
+            tab: Info
+            label: Business Tagline
+            type: text
+            span: left
+            default: TAGLINE HERE
+        business_year_established:
+            tab: Info
+            label: Year Established
+            type: text
+            span: right
+            default: 2016
+        business_address:
+            tab: Info
+            label: Address
+            type: text
+            span: full
+            default:      
+        business_phone:
+            tab: Info
+            label: Phone
+            type: text
+            span: left
+            default: 
+        business_mobile:
+            tab: Info
+            label: Mobile
+            type: text
+            span: right
+            default: 
+        business_email:
+            tab: Info
+            label: Email
+            type: text
+            span: left
+            comment: Email used for contact form submissions. This email will NOT be made public.
+            default:
+        business_trading_hours:
+            tab: Info
+            label: Trading Hours
+            type: richeditor
+            span: left
+            default: 
+            
+        branding_section:
+            tab: Info
+            label: Branding
+            type: section
+        business_symbol:
+            tab: Info
+            label: Business Symbol.
+            type: mediafinder
+            mode: image
+            span: left
+        business_logo:
+            tab: Info
+            label: Logo (landscape)
+            type: mediafinder
+            mode: image
+            span: left
+        business_logo_portrait:
+            tab: Info
+            label: Logo (portrait) [optional]
+            type: mediafinder
+            mode: image
+            span: right
+        business_primary_color:
+            tab: Info
+            label: Primary Color
+            type: text
+            span: left
+        business_secondary_color:
+            tab: Info
+            label: Secondary Color
+            type: text
+            span: right
+
+#        social_media_section:
+#            tab: Social Media
+#            label: Social Media
+#            type: section
+#        website_social:
+#            tab: Info
+#            label: Social Networks
+#            type: repeater
+#            form: "~/themes/theme1-mdbootstrap/config/social-media-platforms-repeater.yaml"
+        sm_facebook:
+            tab: Social Media
+            label: Facebook Page URL.
+            type: text
+            span: full
+        sm_google_map:
+            tab: Social Media
+            label: Google Map URL.
+            type: text
+            span: full
+        sm_google_map_iframe:
+            tab: Social Media
+            label: Google Map IFrame URL.
+            type: textarea
+            span: full                      
+        sm_instagram:
+            tab: Social Media
+            label: Instagram Page URL
+            type: text
+            span: full
+
+

@@ -1,0 +1,104 @@
+title = "Demo1/Test1"
+url = "/demo/test1/:para1?"
+layout = "demo/default"
+is_hidden = 0
+
+[viewBag]
+viewBagProperty = "view bag property value here !"
+
+[builderList locations]
+modelClass = "MichaelHabib\BusinessInformation\Models\Location"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "id"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+<?php
+function onInit(){
+
+}
+function onStart(){
+
+}
+function onEnd(){
+
+}
+function myFunc(){
+
+}
+
+function handleForm(){
+
+}
+?>
+==
+<p>{##} {% put scripts %} {% endput %} {% put sidebar %}</p>
+
+<div>
+<p>This line was added using {{ &quot;{% put &#39;sidebar&#39; %} &quot;}}</p>
+</div>
+
+<p>{% endput %} {% block test1 %} this is a test ?! {% endblock %}</p>
+
+<div>
+<h2>Available tags</h2>
+{% verbatim %}
+
+<p>{% partial &#39;sidebar/menu&#39; %}</p>
+
+<p>{% content &#39;sidebar/content.htm&#39; %} {% content &#39;changelog.md&#39; %}</p>
+
+<p>{% component &#39;locations&#39; %}</p>
+
+<p>{% placeholder name %}</p>
+
+<pre>
+    {% scripts %}
+
+    function onStart()
+    {
+    $this-&gt;addJs(&quot;assets/js/app.js&quot;);
+    }
+
+    {% put scripts %}
+    Add your script tags here ...
+    {% endput %}
+
+    </pre>
+
+<pre>
+    {% styles %}
+
+    function onStart()
+    {
+    $this-&gt;addCss(&quot;assets/css/hello.css&quot;);
+    }
+
+    {% put styles %}
+    Add your css link tags here ...
+    {% endput %}
+
+
+    </pre>
+
+<p>{% macro %} {% endmacro %}</p>
+{% endverbatim %}</div>
+
+<div>
+<h2>Content Block</h2>
+
+<div>{% content &#39;demo/demo-content-block-1&#39; %} rendered using {{&quot; {% content &#39;demo/demo-content-block-1&#39; %} &quot;}}</div>
+</div>
+
+<div>
+<h2>Parameters</h2>
+
+<p><a href="{{ 'demo/demo-page-1' |page}}/Ok-param-set">Click to set parameter value</a></p>
+{{&quot; PageID/:para1 &quot;}} = {{ this.param.para1 }}</div>
+
+<div>
+<h2>Environment</h2>
+{{&quot; this.environment &quot;}} = {{ this.environment }}</div>

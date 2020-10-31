@@ -1,0 +1,25 @@
+# List item.
+item:
+    name: List item.
+    description: 
+    icon: 
+    fields:
+        contentsection:
+            comment: List Item Content
+            type: section
+            span: full
+        title:
+            label: Title
+            type: text
+            span: full
+            default: 
+        subtitle:
+            label: Subtitle
+            type: text
+            span: full
+            default: 
+        icon:
+            label: Icon
+            type: text
+            span: left
+        

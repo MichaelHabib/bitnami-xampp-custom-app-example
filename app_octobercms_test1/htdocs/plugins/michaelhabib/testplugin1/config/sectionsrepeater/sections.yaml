@@ -1,0 +1,12 @@
+section:
+    name: Section
+    description: Standard full width section.
+    icon: fa fa-info
+    fields:
+        rows:
+            label:  
+            order: 100
+            type: repeater
+            icon: fa fa-info
+            prompt: Add a new row.
+#            groups: "~/themes/theme2-mdb/config/sections-repeater/rows.yaml"

@@ -1,0 +1,42 @@
+name: 'Primay Menu'
+items:
+    -
+        title: Home
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: home
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: About
+        type: url
+        url: '/#about'
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Services
+        nesting: '1'
+        type: static-page
+        code: ''
+        reference: services
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        type: url
+        url: '#contact'
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

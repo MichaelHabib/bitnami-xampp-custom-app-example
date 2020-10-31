@@ -1,0 +1,75 @@
+==
+<?php
+
+
+function onStart(){
+
+$this['propertyLevel2ToDump'] = [
+
+];
+
+}
+function onEnd(){
+
+}
+
+?>
+==
+
+<hr/>
+<div class="page-attributes"     >
+    <h2>this.page.getNameList()</h2>
+    {{ dump(attribute(_context['this']['page'] ,'getNameList')) }}
+    <h2>Theme Config</h2>
+    {{ dump(this.theme.config) }}
+
+    {% for propertyName , propertValue in this %}
+    <div class="inforow">
+        <header class="section-header">
+            <h2>
+                <b>{{ propertyName }}</b>
+            </h2>
+        </header>
+        {{ dump(_context['this'][propertyName]) }}
+
+        {% set propertyLevel2 = 'attributes' %}
+        {% if _context['this'][propertyName][propertyLevel2]  is defined %}
+        <div>
+            <h3>
+                <b>{{ propertyName}}.{{ propertyLevel2 }}</b>
+            </h3>
+            {{ dump(attribute(_context['this'][propertyName],propertyLevel2)) }}
+        </div>
+        {% endif %}
+
+        {% set propertyLevel2 = 'getConfig' %}
+        {% if _context['this'][propertyName][propertyLevel2]  is defined %}
+        <div>
+            <h3>
+                <b>{{ propertyName}}.{{ propertyLevel2 }}</b>
+            </h3>
+            {{ dump(attribute(_context['this'][propertyName],propertyLevel2)) }}
+        </div>
+        {% endif %}
+
+
+
+
+
+    </div>
+    {% endfor %}
+
+    {#
+    {% for k,v in _context %}
+    <div class="inforow">
+        <header class="section-header">
+            <h2>
+                <b>{{ k }}</b>
+            </h2>
+        </header>
+        {{ dump(_context[k]) }}
+    </div>
+    {% endfor %}
+    #}
+
+</div>

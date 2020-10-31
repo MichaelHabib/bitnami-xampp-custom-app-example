@@ -1,0 +1,50 @@
+[viewBag]
+==
+
+
+function onStart(){
+use Cms\Classes\Theme;
+use Cms\Classes\Page;
+//== attempt to create dynamic meta title that can parse twig or bracet template tags
+
+$theme = Cms\Classes\Theme::getActiveTheme();
+if(($stringContainingTwig = $this['page']['meta_title']) !== null ){
+$page_meta_title = Twig::parse($stringContainingTwig, [
+'separator' => $theme->title_separator ?: ' - ' ,
+'title' => $this['page']['title'],
+'business_name' => $theme->business_name,
+]);
+}else{
+$page_meta_title = $this['page']['title'].' - '.$theme->business_name;
+
+}
+$this['page_meta_title'] = $page_meta_title;
+
+}
+==
+<meta charset="utf-8">
+<title>{{ page_meta_title }}</title>
+<meta name="description" content="{{ this.page.meta_description }}">
+<meta name="title" content="{{ page_meta_title }}">
+<meta name="author" content="MHEssentials.com.au">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="OctoberCMS">
+<link rel="icon" type="image/png" href="{{ this.theme.business_symbol |media |resize(50)}}">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<link href="{{ 'assets/css/bootstrap.min.css' |theme }}" rel="stylesheet">    
+<!--<link href="{{ 'assets/css/mdb.min.css'  |theme }}" rel="stylesheet">-->    
+<link href="{{ ['assets/scss/mdb.scss'] |theme }}" rel="stylesheet">    
+
+<!--<link href="{{ 'assets/css/style.css'  |theme }}" rel="stylesheet">-->    
+<!--<link href="{{ 'assets/css/basicLandingPage.css'  |theme }}" rel="stylesheet">-->    
+<link href="{{ 'assets/vendor/bootstrap-social-gh-pages/bootstrap-social.css' |theme }}" rel="stylesheet">    
+<link href="{{ ['assets/components/section-separators/scss/section-separators.scss'] |theme }}" rel="stylesheet">    
+
+
+{% styles %}   

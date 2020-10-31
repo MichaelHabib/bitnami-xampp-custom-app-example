@@ -1,0 +1,34 @@
+containerDefaultFeilds:
+    backendHeader:
+        label: x
+        type: section
+        span: full
+        order: -100
+    backendLabel:
+        label: Admin Label 
+        comment: Label this object for easier identification. For admin use only.
+        type: text
+        span: right
+    partialSuffix:
+        label: Partial Suffix. 
+        comment: WIll attempt to load ...
+        type: text
+        span: left
+
+    csssection:
+        comment: CSS
+        type: section
+        span: full
+    id:
+        label: CSS ID
+        type: text
+        span: left
+    classes:
+        label: CSS Classes
+        type: text
+        span: right
+
+    contentsection:
+        comment: Content
+        type: section
+        span: full

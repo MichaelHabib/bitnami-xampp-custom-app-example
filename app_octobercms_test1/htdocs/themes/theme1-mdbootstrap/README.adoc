@@ -1,0 +1,16 @@
+= Theme 1 - mdbootstrap
+An attempt to create an OctoverCMS theme with Founcation CSS.
+
+
+== Required Plugins:
+
+
+== Dependencies 
+=== Plugins
+- toughdeveloper-imageresizer
+
+=== CSS, JS & Fonts (Included in assets/ folder)
+- https://github.com/lipis/bootstrap-social[Bootstrap Social]
+- https://fontawesome.com/[Font Awesome] 
+- https://tympanus.net/codrops/2013/10/03/a-collection-of-separator-styles/[Separators]
+- 

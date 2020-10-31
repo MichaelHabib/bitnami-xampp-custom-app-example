@@ -1,0 +1,394 @@
+// Project specific custom CSS
+
+
+
+html, body {
+    height: 100%;
+}
+body{
+    padding-bottom:  5rem;
+    padding-top: 5rem;
+}
+
+/**
+* ********************************************
+* WOW Animation
+* ********************************************
+**/
+.wow {
+    visibility: hidden;
+}
+/**
+* ********************************************
+* Header Section
+* ********************************************
+**/
+#layout-header{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .page-header{
+        /*padding: 50vh 0 0 0;*/
+        flex: 2;
+        align-items: end;
+        display: flex;
+
+        .page-title{
+            background:  rgba(#555,0.4);
+            padding: 2rem;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+        & > *:first-child{
+            margin-top: auto;
+        }
+
+
+    }
+
+    #primary-nav.navbar.nav-primary {
+        background-color: $primary-color !important;
+        /*border-bottom: red 2px solid;*/
+        //Show business name / logo after scrol, because logo already shown in .under-nav.
+        .navbar-brand{
+            display: none;
+        }
+        &.top-nav-collapse{
+            .navbar-brand{
+                display: block;
+            }
+        }
+        //// .navbar-nav.nav-main-items
+        @include media-breakpoint-up(md){
+
+            .navbar-nav{
+
+                &.nav-main-items {
+                    flex: 2;
+                    margin: 0;
+                    display: flex;
+                    align-items: stretch;
+                    flex-direction: row;
+                    .nav-item{
+                        flex: 1;
+                        max-width: 10vw;
+                        text-align: center;
+                    }
+
+                    .nav-item.home-icon{
+                        flex: 0;
+                        display: flex;
+                        margin-right: 1rem;
+                        a{
+                            display: flex;
+                            flex: 1;
+                            justify-content: center;
+                            flex-direction: column;
+                            padding: 0.2rem;
+                        }
+                    }
+                    .nav-item.loop-index-1{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .navbar-nav{
+
+            //// .nav contact icons
+            &.nav-contact-icons{
+
+                @include media-breakpoint-up(xl){
+                    .phone, .mobile{
+                        .nav-link{
+                            span.nav-link-content{
+                                display: none
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*end .navbar-nav*/ 
+        //// .unser-nav
+        .under-nav{
+            margin-top: 100px;
+            .logo-col{
+                .logo{
+                    /*text-align: center;*/
+                    @include media-breakpoint-up(md){
+                        /*text-align: left;*/
+                    }
+                }
+            }
+            .phone-col{
+                font-family: Helvetica, Arial, Sans-Serif;
+
+                /*text-align: center;*/
+                @include media-breakpoint-up(md){
+                    /*text-align: right;*/
+                }
+                .phone{
+
+                    &::after{
+
+                    }
+                    .phone-number{
+                        color: black;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+/**
+* ********************************************
+* Page Classes
+* ********************************************
+**/
+
+.page_content{
+    img{
+        &.fr-fil{
+            float: left;
+        }
+        &.fr-fir{
+            float: right;
+        }
+    }
+}
+/**
+* ********************************************
+* Content Sections 
+* ********************************************
+**/
+.content-section{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+
+    .section-header{
+        padding: 2rem 0 4rem 0;
+
+        h2{
+            font-size: 3em;
+        }
+    }
+}
+
+/**
+* ********************************************
+* Footer Section
+* ********************************************
+**/
+#layout-footer{
+    margin-bottom: 5em;
+    
+}
+
+
+/**
+* ********************************************
+* Services Grid
+* ********************************************
+**/
+.services-summary-grid{
+    .service-col{
+        min-height: 45rem;
+        margin-bottom: 2rem;
+        min-width: 360px;
+        .card-header{
+            min-height: 8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .card-title{
+                font-size: 1.75rem;
+            }
+        }
+    }
+
+}
+
+
+/**
+* ********************************************
+* Utilities
+* ********************************************
+**/
+
+hr{
+    &.margin-2rem{
+        margin: 2rem 0;
+
+    }
+    &.margin-4rem{
+        margin: 4rem 0;
+    } 
+    &.hidden{
+        border-color: rgba(0,0,0,0.0)
+    }
+}
+
+
+/**
+* ********************************************
+* Parallax
+* ********************************************
+**/
+.parallax {
+    /* The image used */
+
+    /* Set a specific height */
+    min-height: 360px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/**
+* ********************************************
+* Home Layout
+* ********************************************
+**/
+.header_home-page{
+    .header_content{
+        background:  rgba(#555,0.4);
+        padding: 2rem;
+        /*margin: 4rem;*/
+        color: #fff;
+    }
+
+
+}
+#about{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.3rem;
+    background: #fafafa;
+}
+#offers{
+    .card-wrapper{
+        width: 100%;
+        /*height: auto;*/
+        @include media-breakpoint-up(md){
+            width: 50%;
+            /*height: 100%;*/
+
+
+        }
+        @include media-breakpoint-up(lg){
+
+            width: 25%;
+            /*height: 100%*/
+        }
+    }
+
+    .card {
+        .card-header{
+            min-height: 14rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            background: #0480fd;
+            color: #fff;
+            .fa{
+                padding-bottom: 1rem;
+            }
+        }
+    }
+}
+
+/**
+* ********************************************
+* Service layout
+* ********************************************
+**/
+.layout_service{
+    .sections-loop-wrapper{
+        .content-section{
+
+        }
+
+        .content-section{
+
+            .body-col{
+                text-align: center;    
+
+                .body{
+                    padding: 2rem;
+                    font-size: 1.5rem;
+                    color: $primary-color-dark;
+                    b, strong {
+                        font-weight: 500;
+                    }
+                }
+            }
+            .image-col{
+                .image{
+                    padding: 2rem;
+                }
+            }
+            &:nth-child(even){
+
+            }
+            &:nth-child(odd){
+                background: #fafafa; 
+
+            }
+            @include media-breakpoint-down(lg){
+                .image-col,
+                .body-col{
+                    justify-content: center;
+                    display: flex;
+                }
+            }
+            @include media-breakpoint-between(lg, xl){
+                &:nth-child(even){
+                    .image-col{
+                        order:2;
+                    }
+                }
+                .body-col{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: left;    
+                }
+            }
+        }
+        /*end .content-section*/
+
+        .content-section#sections_cta {
+            p{
+                color: #fff;
+            }
+        }
+    }
+}
+
+/**
+* ********************************************
+* Contact Section
+* ********************************************
+**/
+#contact{
+    background: $primary-color-darker;
+    color: #fff;
+    .contact-info-card{
+        background:  rgba($primary-color,0.1);
+    }
+
+}
+.google-map-iframe-wrapper {
+    padding: 0px;
+}

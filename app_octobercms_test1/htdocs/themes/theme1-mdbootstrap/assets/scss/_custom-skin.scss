@@ -1,0 +1,193 @@
+// custom mdb skin for current project.
+/**
+* ********************************************
+* Navbar
+* ********************************************
+**/
+
+.navbar.nav-primary {
+    background-color:  $primary-color;
+
+    @include media-breakpoint-up(lg){
+        background-color: transparent;
+        &.top-nav-collapse ,
+        &:hover{
+            background-color:  $primary-color;
+        }   
+    }
+
+    .navbar-brand{
+        max-width: 50%;
+
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        @include media-breakpoint-up(lg){
+            margin-right: 2rem;
+        }
+    }
+    //General .navbar-nav. styling
+    .navbar-nav {
+        .nav-item {
+            .nav-link{
+                padding: 1rem;
+                &:hover{
+                    background: rgba(0,0,0,0.2);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .navbar-toggler {
+        order: 10;
+    }
+    .navbar-collapse{
+        order: 20;
+        .navbar-nav.nav-main-items{
+            .nav-item{
+                border-bottom:  2px solid rgba(0,0,0,0);
+                &.active{
+                    border-color: $secondary-color;
+                }
+                .nav-link {
+                    padding: 1rem;
+                }
+
+            }
+            .dropdown-menu{
+                .dropdown-item{
+                    @include media-breakpoint-up(lg){
+                        border-left:  4px solid rgba(0,0,0,0);
+                        padding-right: 4px;
+
+                        &.active{
+                            margin-left: -2px;
+                            padding-right: 2px;
+
+                            border-color: $primary-color;
+                            background: #fff;
+                        }
+                        &:hover{
+                            margin-left: -4px;
+                            padding-right: 0px;
+                            border-color: $secondary-color !important;
+                        }
+                    }
+
+                }
+            }
+            /*end .dropdown-menu*/
+
+        }
+    }
+
+    .navbar-nav.nav-contact-icons{
+        order: 9;
+        display: flex;
+        flex-direction: row;
+        .nav-link{
+            .nav-link-content{
+                display: none;
+            }
+        }
+        @include media-breakpoint-up(lg){
+            &{
+                display: none;
+            }
+        }
+        @include media-breakpoint-up(xl){
+            order: 30;
+            display: flex;
+            //Disable clicking phone links on desktop
+            .phone, .mobile{
+                &, a{
+                    pointer-events: none;
+                    cursor: default;
+                }
+            }
+            .nav-link{
+                span.nav-link-content{
+                    display: inline-block;
+                    padding-left: 0.4rem;
+                }
+            }
+        }
+    }
+    .navbar-nav.nav-flex-icons{
+        .nav-link {
+
+        }
+    }
+}
+
+
+/**
+* ********************************************
+* Nav
+* ********************************************
+**/
+.nav{
+    .nav-separator{
+        height: 100%;
+        display: block;
+        padding: 0.5rem 1rem;
+        &::after{
+            content: "|";
+        }
+
+    }
+}
+
+
+/**
+* ********************************************
+*  Custom Simple Bootstrap Card
+* - Stripping away styling such as card-header bg & drop shadow
+* ********************************************
+**/
+
+.card.card-simple{
+    box-shadow: none;
+    background-color: #fafafa;
+
+    .card-header{
+        background-color: transparent;
+
+    }
+    .card-footer{
+        background-color: transparent;
+    }
+
+
+}
+
+
+/**
+* ********************************************
+* Custom Contact Info Bootstrap Card
+* ********************************************
+**/
+.card.contact-info-card {
+    .card-body{
+        .card-title{
+
+        }
+        .label{
+            font-weight: bold;
+            .fas-wrapper{
+                width: 1.5rem;
+                display: inline-block;
+                font-weight: normal;
+            }
+        }
+        .trading-hours{
+            .content{
+                padding-left: 1.8rem;
+            }
+        }
+        .card-footer{
+
+        }
+    }
+}

@@ -1,0 +1,47 @@
+
+==
+
+==
+<div class="container-fluid services-summary-grid">
+    <div class="row row-eq-height">
+        {% for item in services %}
+        <div class="service-col col-lg-6 col-xl-3">
+            <div class="view hoverable  mb-4  h-100">
+                <div class="card card-simple text-center h-100 ">
+                    <div class="card-header">
+                        <h3 class="card-title">{{item.title}} </h3>
+                    </div>
+                    <div class="card-img-top-wrapper view overlay zoom">
+                        <a class="white-text" href="{{ url('/') }}{{ item.url }}">
+                            <img class="card-img-top img-fluid" src="{{ item.featured_image|media |resize(360,320,{ mode: 'crop'}) }}" alt="Main image for {{ item.title }}">
+                            <div class="overlay-content mask flex-center rgba-black-light">
+                                <p class="white-text">
+
+                                    <span class="h3"> Learn More</span>
+
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        {{ item.short_description }}
+                    </div>
+
+                    <div class="card-footer">
+
+
+                        <a class="btn btn-primary" href="{{ url('/') }}{{ item.url }}">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end .col.**-->
+
+        {% endfor %}
+
+    </div>
+    <!--end .row-->
+</div>
+<!--end .container-fluid-->
+

@@ -1,0 +1,12 @@
+name: theme1-mdbootstrap
+description: 'theme1-mdbootstrap desc'
+author: MichaelHabib
+homepage: ''
+code: ''
+previewImage: null
+require: 
+    - toughdeveloper.imageresizer
+    - RainLab.Pages
+    - RainLab.Blog
+
+form: config/theme-form-fields.yaml

@@ -1,0 +1,25 @@
+
+[viewBag]
+
+[account]
+redirect = "home"
+paramCode = "code"
+==
+function onStart(){
+return Redirect::to('/backend')->with('message', 'Login Failed');
+}
+==
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'demo3mdb/head_meta' %}
+
+    </head>
+
+    <body>
+        <div class='container py-5'>
+            {% component 'account' %}
+        </div>
+    </body>
+</html>

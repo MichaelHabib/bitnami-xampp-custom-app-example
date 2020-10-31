@@ -1,0 +1,96 @@
+[staticMenu]
+code = "primay-menu"
+
+[staticBreadcrumbs]
+
+[staticPage]
+useContent = 1
+default = 0
+
+[viewBag]
+
+[staticMenu]
+code = "primay-menu"
+==
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <div class="container">
+
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">{{ this.theme.business_name }}</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if staticMenu.menuItems %}
+            {% set items = staticMenu.menuItems %}
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                {% for item in items %}
+                <li class="nav-item {{ item.isActive or item.isChildActive ? 'active' : '' }}
+                    {{ item.items ? 'dropdown btn-group' : '' }}"
+                    >
+
+    <a class="nav-link 
+                       {% if item.items %}'dropdown-toggle' {% endif %}"
+    {% if item.items %} id="dropdownMenu{{ item.title|replace({' ':'-'}) }}" 
+                       data-toggle="dropdown" 
+                       aria-haspopup="true" 
+                       aria-expanded="false"
+                       {% endif %}
+                       href="{{ item.url }}"
+                       >
+                       {{ item.title }}
+
+                       {% if item.items %}
+                       <span class="sr-only">(current)</span>
+                           {% endif %}
+                       </a>
+
+                       {% if item.items %}
+                       <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu{{ item.title|replace({' ':'-'}) }}">
+                           <a class="dropdown-item" href="{{ item.url }}">{{ item.title }}</a>
+                           <div class="dropdown-divider"></div>
+                           {% for child in item.items %}
+
+                           <a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
+                           {% endfor %}
+                            <div class="dropdown-divider"></div>
+                       </div>
+                       {% endif %}
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+                <!-- Links -->
+
+                <!-- Search form -->
+                <!--        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        </form>-->
+            </div>
+            <!-- Collapsible content -->
+        </div>
+    </nav>
+    <!--/.Navbar-->
+
+    <section class="page-header" style="background: url({{ featured_image |media }});  ">
+        <div class="container">
+            <div class="page-title">
+                <h1 >
+                    {{ this.page.title }}
+                </h1>
+            </div>
+
+            <div class="page-cta">
+                <!--<a target="_blank" href="{{ btn1Link }}" class="btn btn-indigo btn-lg wow fadeInLeft" data-wow-delay="0.2s" rel="nofollow">{{ btn1Text }}</a>-->
+            </div>
+
+
+        </div>
+    </section>

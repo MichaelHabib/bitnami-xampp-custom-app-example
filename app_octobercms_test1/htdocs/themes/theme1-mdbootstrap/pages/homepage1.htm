@@ -1,0 +1,60 @@
+title = "HomePage1"
+url = "/demo/homepage1"
+layout = "demo3mdb/default"
+is_hidden = 0
+
+[viewBag]
+viewBagProperty = "view bag property value here !"
+
+[builderList locations]
+modelClass = "MichaelHabib\BusinessInformation\Models\Location"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "id"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+<?php
+function onInit(){
+
+}
+function onStart(){
+
+}
+function onEnd(){
+
+}
+function myFunc(){
+
+}
+
+function handleForm(){
+
+}
+?>
+==
+<p>{##}</p>
+
+<h1>{{ this.page.title }}</h1>
+
+<div>
+<h2>Page Variables</h2>
+{{ viewBag.viewBagProperty }}
+
+<div><strong>Page Title:</strong> {{ this.page.title }}</div>
+
+<div><strong>Page ID:</strong> {{ this.page.id }}</div>
+
+<div><strong>Page fileName &amp; baseFileName: </strong> {{ this.page.fileName }} -- {{ this.page.baseFileName }}</div>
+
+<div><strong>Page Description: </strong> {{ this.page.description }}</div>
+
+<pre>
+{{"
+{{ this.page }}
+"}}
+{{ this.page }}
+    </pre>
+</div>

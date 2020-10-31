@@ -1,0 +1,14 @@
+[viewBag]
+==
+<div class='partial demo-submenu'>
+    <h3>Sub Menu</h3>
+
+    <nav>
+          <a href ="{{ 'demo/demo-home'|page}}">< Demo</a></li>
+        <ul>
+            {% for menuItem in submenu %}
+            <li><a href ="{{ menuItem.url|page}}">{{ menuItem.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

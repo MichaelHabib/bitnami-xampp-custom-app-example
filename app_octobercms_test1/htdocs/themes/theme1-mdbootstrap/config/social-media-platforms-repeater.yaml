@@ -1,0 +1,38 @@
+#social_media_profile:
+#    name: SM Profile Link
+#    description: Social media profile link.
+#    icon: icon-file-text-o
+fields:
+    title:
+        label: Title
+        type: text
+        required: true
+    url:
+        label: URL
+        type: text
+        required: true
+        comment: Provide account handle or id , depending on the platform.
+    css_class:
+        label: CSS Class
+        type: text
+
+#    handle:
+#        label: Handle
+#        type: text
+#        required: true
+#        comment: Provide account handle or id , depending on the platform.
+#    sm_platform:
+#        label: Social Media Platform
+#        type: dropdown
+#        required: true
+#        options:
+#            facebook_page: Facebook Page
+#            facebook_group: Facebook Group
+#            instagram: Instagram
+#            google_plus: Google+
+#            google_map: Google Map
+#            other: Other
+#    sm_platform_other:
+#        label : Other Platforms ?
+#        type: text
+#        comment: Provide the full URL If 'other' is selected in the Social Media Platforms dropdown above.

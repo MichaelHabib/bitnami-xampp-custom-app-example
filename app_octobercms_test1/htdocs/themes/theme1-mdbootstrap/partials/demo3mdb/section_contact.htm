@@ -1,0 +1,121 @@
+
+==
+==
+
+<div id="contact" class="content-section  container-fluid">  
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <header class="section-header text-center">
+                    <h2>Contact Us</h2>
+                </header>
+            </div>
+        </div>
+        <!--end .row-->
+        <div class="row row-eq-height">
+            <div class="col-md-8 h">
+                {% if component('contact_form') %}
+                {% component 'contact_form' %}
+                {% else %}
+                Add contact_form component to this page .
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <div class="card contact-info-card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">More Information</h3>
+                        {% if this.theme.business_address %}
+                        <div class="address">
+                            <p>
+                                <span class="label">
+                                    <span class="fas-wrapper">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </span>
+                                    Address: 
+                                </span> 
+                                <a href='{{ this.theme.sm_google_map }}' target='new'>{{ this.theme.business_address }}</a>
+                            </p>
+                        </div>
+                        {% endif %}
+                        {% if this.theme.business_phone %}
+                        <div class="phone">
+                            <p>
+                                <span class="label">
+                                    <span class="fas-wrapper">
+                                        <i class="fas fa-phone"></i>
+                                    </span> 
+                                    Phone:
+                                </span> 
+                                <a href='tel:{{ this.theme.business_phone |replace({' ': '','(': '',')':''}) }}' target='new'>{{ this.theme.business_phone }}</a>
+
+
+                            </p>
+                        </div>
+                        {% endif %}
+                        {% if this.theme.business_mobile %}
+                        <div class="mobile">
+                            <p>
+                                <span class="label">
+                                    <span class="fas-wrapper">
+                                        <i class="fas fa-mobile-alt"></i> 
+                                    </span>
+                                    Mobile: 
+                                </span> 
+                                <a href="tel:{{ this.theme.business_mobile |replace({' ': '','(': '',')':''}) }}" target='new'>{{ this.theme.business_mobile }}</a>
+                            </p>
+                        </div>
+                        {% endif %}
+                        {% if this.theme.business_trading_hours %}
+                        <div class="trading-hours">
+                            <span class="label">
+                                <span class="fas-wrapper">
+                                    <i class="fas fa-clock"></i> 
+                                </span>
+                                Trading Hours: 
+                            </span>
+                            <div class="content">
+                                {{ this.theme.business_trading_hours | raw}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="card-footer">
+                        {% if this.theme.sm_facebook %}
+                        <a class="btn btn-social-icon btn-facebook" href="{{ this.theme.sm_facebook }}" target="new">                            <span class="fa fa-facebook"></span>
+                        </a>
+                        {% endif %}
+                        {% if this.theme.sm_instagram %}
+                        <a class="btn btn-social-icon btn-instagram" href="{{ this.theme.sm_instagram }}" target="new">
+                            <span class="fa fa-instagram"></span>
+                        </a>
+                        {% endif %}
+
+                        {% if this.theme.sm_google_map %}
+                        <a class="btn btn-social-icon btn-google" href="{{ this.theme.sm_googlemap }}" target="new">
+                            <span class="fa fa-google"></span>
+                        </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!--end .row-->
+
+    </div>
+    <!--end .container-->
+
+
+</div>
+<!--end #contact.container-fluid -->
+
+
+{% if this.theme.sm_google_map_iframe %}
+<div class="google-map-iframe-wrapper content-section">
+    <iframe class="google-map-iframe" src="{{ this.theme.sm_google_map_iframe |raw }}" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+{% endif %}

@@ -1,0 +1,11 @@
+name: Locations
+modelClass: MichaelHabib\BusinessInformation\Models\Location
+form: $/michaelhabib/businessinformation/models/location/fields.yaml
+defaultRedirect: michaelhabib/businessinformation/locations
+create:
+    redirect: 'michaelhabib/businessinformation/locations/update/:id'
+    redirectClose: michaelhabib/businessinformation/locations
+update:
+    redirect: michaelhabib/businessinformation/locations
+    redirectClose: michaelhabib/businessinformation/locations
+preview: {  }

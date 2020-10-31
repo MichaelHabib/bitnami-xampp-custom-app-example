@@ -1,0 +1,12 @@
+==    
+        {mediafinder name="featured_image" label="Featured Image" tab="Media" mode="image"}{/mediafinder}
+        
+        {repeater name="content_sections" prompt="Add another content section"}
+    <h2>{text name="title" label="Title"}Title{/text}</h2>
+    <p>{textarea name="content" label="Content"}Content{/textarea}</p>
+{/repeater}
+        {% for fields in content_sections %}
+    <h2>{{ fields.title }}</h2>
+    <p>{{ fields.content|raw }}</p>
+{% endfor %}
+    

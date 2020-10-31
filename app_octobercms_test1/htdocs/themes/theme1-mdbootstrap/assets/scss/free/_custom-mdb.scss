@@ -1,0 +1,43 @@
+// mdb framework custom sass
+
+/**
+* ********************************************
+* Navbar
+* ********************************************
+**/
+/*Gray: #bdbdbd
+Blue : #0480fd
+Dark Gray: #676767
+Blue-purple: #605fd7*/
+
+
+.navbar {
+    background-color: transparent;
+    .navbar-brand{
+        align-self: center;
+    }
+}
+
+.nav-primary {
+    background-color: transparent;
+    &.top-nav-collapse ,&:hover
+        {
+        background-color:  $primary-color;
+    }
+}
+
+
+/**
+* ********************************************
+* Nav
+* ********************************************
+**/
+.nav-separator{
+    height: 100%;
+    display: block;
+    padding: 0.5rem 1rem;
+    &::after{
+        content: "|";
+    }
+
+}

@@ -1,0 +1,22 @@
+[viewBag]
+==
+<meta charset="utf-8">
+<title>{{ this.theme.business_name }} - {{ this.page.title }}</title>
+<meta name="description" content="{{ this.page.meta_description }}">
+<meta name="title" content="{{ this.page.meta_title }}">
+<meta name="author" content="OctoberCMS">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="OctoberCMS">
+<link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link href="{{ 'assets/css/bootstrap.min.css' |theme }}" rel="stylesheet">    
+<link href="{{ 'assets/css/mdb.min.css'  |theme }}" rel="stylesheet">    
+<link href="{{ 'assets/css/style.css'  |theme }}" rel="stylesheet">    
+<link href="{{ 'assets/css/basicLandingPage.css'  |theme }}" rel="stylesheet">    
+<link href="{{ ['assets/sass/custom.scss'] |theme }}" rel="stylesheet">    
+
+{% styles %}

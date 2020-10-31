@@ -1,0 +1,46 @@
+
+{% for fields in sections %}
+
+<div class="content-section {{ fields.section_class }}" 
+     {% if fields.section_id %} id="{{ fields.section_id }}" {% endif %} 
+     style="background:{{ fields.background_color }}"
+     data-wow-delay="{{ loop.index / 2}}s"
+     >
+     <div class="container">
+        {% if fields.title %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header  text-center ">
+                    <h2 class="">{{fields.title}} </h2>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            {% if fields.image %}
+            <div class="col-lg-4 image-col">
+                <div class="image view zoom">
+                    <img class="img-thumbnail" src="{{ fields.image |media |resize(420,360)}}" alt="{{fields.title}} image"/>
+                </div>
+            </div>
+            {% endif %}
+            <div class="col body-col">
+                <div class="body">
+                    {{ fields.content |raw}}    
+                </div>
+            </div>
+        </div>
+        <div class="row footer">
+            <div class="col-12 text-center">
+                {% if fields.button_text %}
+                <a class="btn btn-primary" href="{{ fields.button_url }}">{{ fields.button_text  }}</a>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+                       
+
+</div>
+
+{% endfor %}

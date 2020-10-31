@@ -1,0 +1,38 @@
+<form class="border border-light p-5" data-request="{{ __SELF__ }}::onFormSubmit">
+
+    {{ form_token() }}
+
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Phone:</label>
+        <input type="text" id="phone" name="phone" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" class="form-control">
+    </div>
+
+<!--    <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" class="form-control">
+    </div>-->
+
+    <div class="form-group">
+         <label for="message">Message: </label>
+        <textarea id="message" class="form-control md-textarea" name="message" rows="8" cols="80"></textarea>
+    </div>
+
+    <div class="form-group">
+        {% partial '@recaptcha' %}
+    </div>
+
+    <button id="simpleContactSubmitButton" type="submit" class="btn btn-primary">Submit</button>
+
+</form>

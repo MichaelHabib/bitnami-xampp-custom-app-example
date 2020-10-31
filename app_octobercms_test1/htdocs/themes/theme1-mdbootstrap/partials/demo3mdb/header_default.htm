@@ -1,0 +1,27 @@
+[staticBreadcrumbs]
+
+[staticPage]
+useContent = 1
+default = 0
+
+[viewBag]
+==
+
+==
+<section class="page-header" style="background: center no-repeat url({{ featured_image|media |resize(1200,600,{ mode: 'crop'}) }}); background-size: cover;  ">
+    <div class="container">
+        <div class="page-title">
+            <h1 >
+                {{ this.page.title }}
+            </h1>
+        </div>
+
+        <div class="page-cta">
+            <!--<a target="_blank" href="{{ btn1Link }}" class="btn btn-indigo btn-lg wow fadeInLeft" data-wow-delay="0.2s" rel="nofollow">{{ btn1Text }}</a>-->
+        </div>
+
+
+    </div>
+                  <!--<div class="ss-style-triangles bottom"></div>-->
+
+</section>

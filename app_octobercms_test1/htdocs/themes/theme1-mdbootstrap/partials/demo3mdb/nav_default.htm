@@ -1,0 +1,172 @@
+[staticMenu]
+code = "primay-menu"
+==
+
+==
+
+{% if nav_id == null %}
+{% set nav_id = staticMenu.name ~ "_" ~ staticMenu.properties.code  %}
+
+{% endif %}
+<!--Navbar-->
+<nav id="{{ nav_id }}" class="navbar nav-primary navbar-expand-lg navbar-dark fixed-top scrolling-navbar smooth-scroll">
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{{ url('/') }}">
+            {% if this.theme.business_logo %}
+            <img src="{{ this.theme.business_logo |media |resize(150) }}" alt="{{ this.theme.business_name }} logo"/>
+            {% else %}
+            {{ this.theme.business_name }}
+            {% endif %}
+        </a>
+
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if staticMenu.menuItems %}
+            {% set items = staticMenu.menuItems %}
+            <!-- Links -->
+            <ul class="navbar-nav nav-main-items mr-auto">
+                 <li class="nav-item home-icon {{ item.isActive or item.isChildActive ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ url('/') }}">
+                       <i class='fa fa-home fa-2x'></i>
+                    </a>
+                </li>
+                
+                {% for item in items %}
+                <li class="nav-item loop-index-{{ loop.index }}
+                    {{ item.isActive or item.isChildActive ? 'active' : '' }}
+                    {{ item.items ? 'dropdown' : '' }}"
+                    >
+                    <a class="nav-link 
+                       {% if item.items %}dropdown-toggle {% endif %}"
+                       {% if item.items %} id="dropdownMenu{{ item.title|replace({' ':'-'}) }}" 
+                       data-toggle="dropdown" 
+                       aria-haspopup="true" 
+                       aria-expanded="false"
+                       {% endif %}
+                       href="{{ item.url }}"
+                       >
+                       {{ item.title}}
+
+                       {% if item.items %}
+                       <span class="sr-only">(current)</span>
+                        {% endif %}
+                    </a>
+                    <!--Start .dropdown-menu-->
+                    {% if item.items %}
+                    <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu{{ item.title|replace({' ':'-'}) }}">
+                        <!--Start with a link to parent page in dropdown-->
+                        <a class="dropdown-item   
+                           {{ item.isActive ? 'active' : '' }}
+                           " href="{{ item.url }}">{{ item.title }}</a>
+                        <div class="dropdown-divider"></div>
+                        <!--Loop through children items-->
+                        {% for child in item.items %}
+                        <a class="dropdown-item   
+                           {{ child.isActive ? 'active' : '' }}
+                           " href="{{ child.url }}">{{ child.title }}</a>
+                        {% endfor %}
+                        <div class="dropdown-divider"></div>
+                    </div>
+                    {% endif %}
+                    <!--end .dropdown-menu-->
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif%}
+
+            <ul class="navbar-nav nav-flex-icons">
+
+                {% if this.theme.sm_facebook %}
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="{{ this.theme.sm_facebook }}" target="new">                          <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if this.theme.sm_instagram %}
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light" href="{{ this.theme.sm_instagram }}" target="new">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if this.theme.sm_google_map %}
+                <li class="nav-item">
+
+                    <a class="nav-link waves-effect waves-light" href="{{ this.theme.sm_googlemap }}" target="new">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            <!-- Links -->
+
+            <!-- Search form -->
+            <!--        <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    </form>-->
+        </div>
+        <!-- Collapsible content -->
+
+        <ul class="navbar-nav ml-auto nav-contact-icons sm-only">
+            {% if this.theme.business_address %}
+            <li class="nav-item address">
+                <a class="nav-link waves-effect waves-light fa fa-map" href='{{ this.theme.sm_google_map }}' target='new'></a>
+            </li>
+            {% endif %}
+            {% if this.theme.business_phone %}
+            <li class="nav-item phone">
+                <a class="nav-link waves-effect waves-light fa fa-phone" href='tel:{{ this.theme.business_phone |replace({' ': '','(': '',')':''}) }}' target='new' >
+                    <span class="nav-link-content">{{ this.theme.business_phone}}</span>
+                </a>
+            </li>
+            {% endif %}
+            {% if this.theme.business_mobile %}
+            <li class="nav-item mobile">
+                <a class="nav-link waves-effect waves-light fa fa-mobile" href='tel:{{ this.theme.business_mobile |replace({' ': '','(': '',')':''}) }}' target='new'>
+                    <span class="nav-link-content"> {{ this.theme.business_mobile}}</span>
+
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+
+    </div>
+
+</nav>
+<!--/.Navbar-->
+<div class="under-nav">
+    <div class="container">
+        <div class="row align-items-center justify-content-md-center">
+            <div class="col logo-col text-center text-md-left">
+                <a class="logo" href="{{ url('/') }}">
+                    {% if this.theme.business_logo %}
+                    <img src="{{ this.theme.business_logo |media |resize(300) }}" alt="{{ this.theme.business_name }} logo"/>
+                    {% else %}
+                    {{ this.theme.business_name }}
+                    {% endif %}
+                </a>
+            </div>
+            {% if this.theme.business_phone %}
+
+            <div class="col phone-col d-none d-md-block text-center text-md-right">
+                <span class="h1 ">
+
+                    <a class="phone" href='tel:{{ this.theme.business_phone |replace({' ': '','(': '',')':''}) }}' target='new' ><i class="fa fa-phone "></i>
+                        <span class="phone-number">{{ this.theme.business_phone}}</span>
+                    </a>
+
+                </span>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>

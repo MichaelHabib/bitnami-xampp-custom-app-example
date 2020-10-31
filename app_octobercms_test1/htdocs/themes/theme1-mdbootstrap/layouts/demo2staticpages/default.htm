@@ -1,0 +1,88 @@
+description = "Default demo layout with static pages support.."
+
+[staticBreadcrumbs]
+
+[staticMenu]
+
+[staticPage]
+useContent = 1
+default = 0
+==
+
+function getPages(){
+$theme = Theme::getEditTheme();
+$pages = Pg::listInTheme($theme, true);
+return 'pagessssssss';
+vardump($pages );
+}
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'demo2staticpages/head_meta' %}
+    </head>
+    <body class="demo-layout fixed-sn mdb-skin-custom" >
+
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'demo2staticpages/header' %}
+            {#% component 'staticBreadcrumbs' %#}
+        </header>
+{{ this.getPages }}
+        <!-- Content -->
+        <section id="layout-content">
+            <article>
+                <div class="container">
+                    <div class="content-section">
+                        {% page %}
+                    </div>
+                </div>
+
+                {% partial 'demo3mdb/sections-loop_simple.htm' sections=content_sections %}
+            </article>
+
+
+            {#
+            <aside class="sidebar-content col-md-12">
+                {% partial "demo2staticpages/sidebar" %}
+                {% placeholder sidebar %}
+            </aside>
+            #}
+        </section>
+
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'demo2staticpages/footer' %}
+        </footer>
+
+
+
+        {variable type="mediafinder" mode="image" name="featured_image" label="featured_image" tab="Media"}{/variable}
+        {repeater name="content_sections" tab="sections" prompt="Add another content section"}
+
+        {variable type="text" name="title" label="Section Title"}Title{/variable}
+        {variable type="richeditor" name="content" label="Content"}Content{/variable}
+        {variable type="mediafinder" mode="image" name="image" label="Image"}{/variable}
+        {variable type="text" name="background_color" label="Background Color"}{/variable}
+
+        {variable type="text" name="button_text" label="Button Text"}Read More{/variable}
+        {variable type="text" name="button_url" label="Button URL"}{/variable}
+
+        {/repeater}
+
+
+        {#% partial 'demo/demo-partial_page-attributes' %#}
+        <!-- Scripts -->
+        <script src="{{ [
+        'assets/js/jquery-3.2.1.min.js',
+        'assets/js/popper.js',
+        'assets/js/bootstrap.min.js',
+        'assets/js/mdb.min.js'
+    ]|theme }}"></script>
+
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>
