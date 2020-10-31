@@ -1,0 +1,318 @@
+// Project specific custom CSS
+
+
+
+html, body {
+    height: 100%;
+}
+body{
+    /*    padding-bottom:  5rem;
+        padding-top: 5rem;*/
+}
+
+/**
+* ********************************************
+* Nav : nav.style-extended-header.template-nav-extended-header
+* ********************************************
+**/
+nav.style-extended-header.template-nav-extended-header{
+
+    background-color: $primary-color !important;
+    .navbar-brand{
+        display: none;
+    }
+}
+
+/**
+* ********************************************
+* Layout Header Section
+* ********************************************
+**/
+#layout-header{
+    &.style-default{
+        display: flex;
+        flex-direction: column;
+        .page-header{
+            flex: 2;
+            align-items: end;
+            display: flex;
+            padding-top: 100px;
+
+            .page-title{
+                background: rgba($primary-color-hsl10,0.4);
+                padding: 2rem;
+                color: #fff;
+                text-align: center;
+                font-weight: bold;
+            }
+            & > *:first-child{
+                margin-top: auto;
+            }
+        }
+    }
+    &.style-full-screen{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .page-header{
+            flex: 2;
+            align-items: end;
+            display: flex;
+            .page-title{
+                background: rgba($primary-color-hsl10,0.4);
+                padding: 2rem;
+                color: #fff;
+                text-align: center;
+                font-weight: bold;
+            }
+            & > *:first-child{
+                margin-top: auto;
+            }
+
+
+        }
+    }
+    /* end .style-full-screen */
+
+}
+
+/**
+* ********************************************
+* Layout Content Section
+* ********************************************
+**/
+#layout-content{
+    padding-bottom: 2em;
+
+}
+
+
+/**
+* ********************************************
+* Layout Footer Section
+* ********************************************
+**/
+#layout-footer{
+    padding-bottom: 0em;
+
+    .footer-manu{
+        background: $primary-color-hsl20;
+
+        &,a{
+            color : #fff;
+        }
+        a{
+            &.active,
+            &:hover{
+                background: rgba(#000,0.2);
+            }
+            &:hover{
+
+                text-decoration: underline;
+            }
+        }
+    }
+    .footer-copyright{
+        &,a{
+            color : #fff;
+        }
+        padding: 2rem 0 4rem 0;
+        background: $primary-color-hsl10;
+
+    }
+}
+
+/**
+* ********************************************
+* WYSIWYG Support
+* Support classes added  by WYSIWYG editor
+* ********************************************
+**/
+img{
+    &.fr-fil{
+        float: left;
+    }
+    &.fr-fir{
+        float: right;
+    }
+}
+
+
+
+
+/**
+* ********************************************
+* Services Grid
+* ********************************************
+**/
+.services-summary-grid{
+    .service-col{
+        min-height: 45rem;
+        margin-bottom: 2rem;
+        min-width: 360px;
+        .card-header{
+            min-height: 8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .card-title{
+                font-size: 1.75rem;
+            }
+        }
+    }
+
+}
+
+
+/**
+* ********************************************
+* Utilities
+* ********************************************
+**/
+
+hr{
+    &.margin-2rem{
+        margin: 2rem 0;
+
+    }
+    &.margin-4rem{
+        margin: 4rem 0;
+    } 
+    &.hidden{
+        border-color: rgba(0,0,0,0.0)
+    }
+}
+
+.parallax {
+    /* The image used */
+
+    /* Set a specific height */
+    min-height: 360px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/**
+* ********************************************
+* Home Layout
+* ********************************************
+**/
+.header_home-page{
+    .header_content{
+        background:  rgba(#555,0.4);
+        padding: 2rem;
+        /*margin: 4rem;*/
+        color: #fff;
+    }
+
+
+}
+
+
+/**
+* ********************************************
+* Service layout
+* ********************************************
+**/
+.layout_service{
+    .sections-loop-wrapper{
+        .content-section{
+
+        }
+
+        .content-section{
+
+            .body-col{
+                text-align: center;    
+
+                .body{
+                    padding: 2rem;
+                    font-size: 1.5rem;
+                    color: $primary-color-dark;
+                    b, strong {
+                        font-weight: 500;
+                    }
+                }
+            }
+            .image-col{
+                .image{
+                    padding: 2rem;
+                }
+            }
+            &:nth-child(even){
+
+            }
+            &:nth-child(odd){
+                background: #fafafa; 
+
+            }
+            @include media-breakpoint-down(lg){
+                .image-col,
+                .body-col{
+                    justify-content: center;
+                    display: flex;
+                }
+            }
+            @include media-breakpoint-between(lg, xl){
+                &:nth-child(even){
+                    .image-col{
+                        order:2;
+                    }
+                }
+                .body-col{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: left;    
+                }
+            }
+        }
+        /*end .content-section*/
+
+        .content-section#sections_cta {
+            p{
+                color: #fff;
+            }
+        }
+    }
+}
+
+/**
+* ********************************************
+* Contact Section
+* ********************************************
+**/
+#contact{
+    background: $primary-color;
+    color: #fff;
+    padding: 2rem 0;
+    .sectionheader{
+        margin-bottom: 3rem;
+        border-bottom: 2px dotted rgba(255,255,255,0.3);
+    }
+    .contact-info-card{
+        background:  rgba(#000,0.2);
+        a{
+
+        }
+    }
+
+}
+.google-map-iframe-wrapper {
+    padding: 0px;
+}
+
+/**
+* ********************************************
+* WOW Animation
+* ********************************************
+**/
+.wow {
+    visibility: hidden;
+}

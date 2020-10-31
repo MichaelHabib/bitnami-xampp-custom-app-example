@@ -1,0 +1,54 @@
+
+==
+<?php
+
+
+function onStart(){
+
+$partialProperties = [];
+// Load module field values
+$partialProperties['id'] = array_get($this,'module.id','');
+$partialProperties['classes'] = array_get($this,'module.classes','');
+$partialProperties['image'] = array_get($this,'module.image','');
+$partialProperties['title'] = array_get($this,'module.title','');
+$partialProperties['caption'] = array_get($this,'module.caption','');
+
+
+// Load partial arguments.
+//$partialProperties['partialParameter'] = array_get($this,'value.location','default-value');
+$partialProperties['titleTag'] = array_get($this,'module.titleTag','span');
+$partialProperties['captionTag'] = array_get($this,'module.captionTag','span');
+
+
+
+// Assign partial properties to 'data' variable.
+$this['data'] = $partialProperties;
+
+}
+?>
+
+==
+<div class='module-contents'>
+
+
+
+    {% if data.image %}
+    <div class='module-image'>
+        <img class='img-fluid' src='{{data.image | media| resize(800)}}'/>
+    </div>
+    {% endif %}
+    <header>
+        {% if data.title %}
+        <{{data.titleTag}} class='section-title'>
+        {{data.title}}
+        </{{data.titleTag }}>
+        {% endif %}
+
+        {% if data.caption %}
+        <{{data.captionTag}} class='module-caption'> {{data.caption}}</{{ data.captionTag}}>
+        {% endif %}
+    </header>
+
+
+
+</div>

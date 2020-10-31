@@ -1,0 +1,125 @@
+description = "Tests - Test1 Layout"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[staticBreadcrumbs breadcrumbs]
+
+[staticMenu]
+code = "primay-menu"
+
+[emptyForm contact_form]
+rules[name] = "required"
+rules[phone] = "required"
+rules[email] = "required|email"
+rules[message] = "required"
+messages_success = "Your message was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_subject = "Message from website ..."
+mail_recipients[] = "{{ this.theme.business_email }}"
+mail_replyto = "email"
+inline_errors = "enabled"
+sanitize_data = "htmlspecialchars"
+anonymize_ip = "disabled"
+recaptcha_enabled = 0
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+
+[Componentp1c1 p1c1]
+maxItems = 10
+==
+<?php
+function onInit(){
+
+}
+function onStart(){
+
+use Cms\Classes\Theme;
+use Cms\Classes\Page;
+use RainLab\Pages\Classes\Page as StaticPages;
+use RainLab\Pages\Classes\Menu as PagesMenu;
+
+$theme = Theme::getActiveTheme();
+/*
+* ********************************************
+* Set pages to contain all static pages for easy access. 
+* */
+
+$allPages = Page::listInTheme($theme, true);
+$allStaticPages = StaticPages::listInTheme($theme, true);
+$pages = [];
+
+foreach ($allStaticPages as $page) {
+$pages[$page['url']] = $page;
+}
+$this['pages'] = $pages;
+
+
+
+}
+
+function onEnd(){
+
+}
+?>
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'other/head_meta' %}
+
+    </head>
+    <body class="demo-layout fixed-sn mdb-skin-custom" >
+
+        <!-- Header -->
+        <header id="layout-header" class='style-default'>
+            {% partial 'nav/nav_default' nav_id="primary-nav" staticMenu=staticMenu %}
+            {% partial 'header/header_default' %}
+        </header>
+
+        <!-- Content -->
+        <div id="layout-content"  class="">
+            <div class="container">
+                <div class="row">
+                    <aside class="sidebar-content col-md-3">
+                        {% partial "aside/sidebar" %}
+                        {% placeholder sidebar %}
+                    </aside>
+                    <main class="col">
+                        {% component 'breadcrumbs' %}
+                        <article class="">
+                            <div class="page_content">
+                                {#% component 'Componentp1c1' %#}
+                                {% partial 'p1c1::default' %}
+                                {% page %}
+                            </div>
+                            <div class="sections-repeater">
+                                {% partial "sections-repeater/sections-loop" sections=contentsections sectionClasses='container' rowClasses='' moduleClasses ='col' %}
+
+
+                            </div>
+                        </article>
+
+                    </main>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="layout-footer"  class="">
+
+            {% partial 'other/section_contact' %}
+            {% partial 'footer/footer_default' %}
+        </footer>
+
+        {variable type="mediafinder" mode="image" name="featured_image" label="featured_image" tab="Media" span="left" }{/variable}
+        {variable type="textarea" name="short_description" label="Short Description" tab="Sections"}{/variable}
+
+
+
+    </body>
+</html>

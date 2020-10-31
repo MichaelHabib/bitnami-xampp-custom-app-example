@@ -1,0 +1,65 @@
+name: 'Primay Menu'
+items:
+    -
+        title: Home
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: home
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '1'
+            cssClass: home-ietm-css
+            isExternal: '0'
+    -
+        title: About
+        nesting: ''
+        type: url
+        url: '/#about'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Services
+        nesting: '1'
+        type: static-page
+        url: ''
+        code: ''
+        reference: services
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        nesting: ''
+        type: url
+        url: '#contact'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Demos
+        nesting: '1'
+        type: static-page
+        code: ''
+        reference: demos
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

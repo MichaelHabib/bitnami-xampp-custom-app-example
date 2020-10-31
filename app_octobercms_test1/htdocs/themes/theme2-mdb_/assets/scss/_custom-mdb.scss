@@ -1,0 +1,57 @@
+// extending mdb framework
+
+/**
+* ********************************************
+* Bootstrap Demo Styling
+* Adds padding & color to bootstrap componenets.
+* ********************************************
+**/
+@mixin stylecomponenet($color) {
+    padding: 2rem;
+
+    background-color: rgba($color, .15);
+    border: 1px solid rgba($color, .2);
+    position: relative;
+    min-width: 50px;
+    min-height: 50px;
+
+    &:before{
+        content: '?' ;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0px solid rgba(#555, 1);
+        border-width: 1px 0 0 1px;
+        background: rgba(#555, 0.8);
+        color: #fff;
+        padding: 5px;
+        opacity: 0.4;
+        font-size: 0.6rem;
+
+    }
+    &:hover:before{
+    content:  " #" attr(id) " || " attr(class);
+
+        opacity: 1;    
+        font-size: 1rem;
+    }
+}
+.highlight-bootstrap{
+
+    [class*="container"] {
+        @include stylecomponenet(green);
+    }
+    [class*="row"] {
+        @include stylecomponenet(blue);
+    }
+    [class*="col"] {
+        @include stylecomponenet(grey);
+
+        & > *{
+            @include stylecomponenet(grey);
+
+        }
+    }
+
+
+}

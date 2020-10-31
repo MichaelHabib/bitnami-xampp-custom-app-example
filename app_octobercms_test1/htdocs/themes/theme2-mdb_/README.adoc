@@ -1,0 +1,78 @@
+= Theme 2 - mdbootstrap
+An attempt to create an OctoverCMS theme with Founcation CSS.
+
+
+== FIle Structure
+
+- theme2-mdb/
+** layouts/
+*** defaults/ : default layouts
+** partials/
+*** header/
+*** footer/
+*** aside/
+*** nav/
+*** pagination/
+*** other/
+*** sections-repeater/
+**** sections-loop.htm : default partial used for rendering sections, rows & modules. 
+**** module_$ModuleName.htm : default module partial.
+**** module_$ModuleName_$ModulePartialSuffix.htm : optional partial loaded only when the ModulePartialSuffix field value is provided in the backend form.
+
+
+== HTML Structure
+HTML structure described using HAML syntax for simplicity. 
+
+.Layout Structure
+[HAML]
+```
+body
+    header#layout-header
+    div#layout-content
+        main.col
+        aside.col-md-3
+    footer#layout-footer
+
+```
+
+.Sections Repeater HTML Structure
+[HAML]
+```
+.section.container.#{section.classes}.#{sectionClasses}
+    .row/#{row.classes}.#{rowClasses}
+        .module.col.#{module.classes}.#{moduleClasses}
+            .module-contents
+
+```
+sectionClasses, rowClasses and moduleClasses variables are passed in as partial parameters to 1sections-loop.htm` as a way to add required classes to respective html elements.
+
+=== CSS Files & Naming Conventions
+.How to create custom styles for modules & bootstrap compoenents ?
+Use the following format : `.elementType.style-###` for example `.card.style-simple` or 'module.style-primary-highlighted'
+.Creating a custom module style:
+
+
+.
+
+
+== Backend Form YAML files
+
+
+== Modules
+=== Section Header Module
+
+=== Text Area Module
+
+
+
+== Dependencies 
+=== Plugins
+- toughdeveloper-imageresizer
+
+=== CSS, JS & Fonts (Included in assets/ folder)
+- https://github.com/lipis/bootstrap-social[Bootstrap Social]
+- https://fontawesome.com/[Font Awesome] 
+- https://tympanus.net/codrops/2013/10/03/a-collection-of-separator-styles/[Separators]
+
+
+== ToDo: Todo list is available on trello at  https://trello.com/b/yNOzBUfR/octobercms-test-1-product-development

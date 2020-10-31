@@ -1,0 +1,35 @@
+
+==
+<?php
+
+
+function onStart(){
+
+$partialProperties = [];
+// Load module field values
+$partialProperties['id'] = array_get($this,'module.id','');
+$partialProperties['classes'] = array_get($this,'module.classes','');
+$partialProperties['content'] = array_get($this,'module.content','');
+
+
+// Load partial arguments.
+//$partialProperties['partialParameter'] = array_get($this,'value.location','default-value');
+
+
+
+// Assign partial properties to 'data' variable.
+$this['data'] = $partialProperties;
+
+}
+?>
+
+==
+<div class='module-contents'>
+
+    {% if data.content %}
+    <div class='module-content'>
+        {{data.content | raw}}
+    </div>
+    {% endif %}
+
+</div>

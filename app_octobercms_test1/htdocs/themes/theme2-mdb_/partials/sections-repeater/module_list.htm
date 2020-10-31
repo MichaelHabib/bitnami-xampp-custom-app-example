@@ -1,0 +1,73 @@
+
+==
+<?php
+
+
+function onStart(){
+
+$partialProperties = [];
+// Load module field values
+$partialProperties['id'] = array_get($this,'module.id','');
+$partialProperties['classes'] = array_get($this,'module.classes','');
+$partialProperties['title'] = array_get($this,'module.title','');
+$partialProperties['subtitle'] = array_get($this,'module.subtitle','');
+$partialProperties['items'] = array_get($this,'module.items','');
+
+
+// Load partial arguments.
+//$partialProperties['partialParameter'] = array_get($this,'value.location','default-value');
+$partialProperties['titleTag'] = array_get($this,'module.titleTag','h3');
+$partialProperties['subtitleTag'] = array_get($this,'module.subtitleTag','span');
+$partialProperties['itemTitleTag'] = array_get($this,'module.titleTag','span');
+$partialProperties['itemSubtitleTag'] = array_get($this,'module.subtitleTag','span');
+
+
+
+// Assign partial properties to 'data' variable.
+$this['data'] = $partialProperties;
+
+}
+?>
+
+==
+<div class='module-contents'>
+
+    <header>
+        {% if data.title %}
+        <{{data.titleTag}} class='module-title'>
+
+        {{data.title}}
+        </{{data.titleTag }}>
+        {% endif %}
+
+        {% if data.subtitle %}
+        <{{data.subtitleTag}} class='module-subtitle'> {{data.subtitle}}</{{ data.subtitleTag}}>
+        {% endif %}
+    </header>
+
+    {% if data.items %}
+    <ul class='items list-unstyled'>
+        {% for item in data.items %}
+        <li class='item p-1'>
+            {% if item.icon %}
+            <i class='item-icon  d-inline-block align-top p-2 {{ item.icon }}'> </i>
+            {% endif %}
+
+            <span class='item-contents d-inline-block p-1'>
+                {% if item.title %}
+                <{{data.itemTitleTag}} class='item-title h6'>
+                {{item.title}}
+                </{{ data.itemTitleTag }}>
+                {% endif %}
+                <div class="clearfix"></div>
+                {% if item.subtitle %}
+                <{{data.itemSubtitleTag}} class='item-subtitle'> {{item.subtitle}}</{{ data.itemSubtitleTag}}>
+                {% endif %}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+</div>

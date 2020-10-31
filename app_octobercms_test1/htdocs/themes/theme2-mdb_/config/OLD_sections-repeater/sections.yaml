@@ -1,0 +1,39 @@
+sectiongroup:
+    name: Section
+    description: Standard full width section.
+    icon: fa fa-facebook
+    cssClass: col-3 red lighten-5
+    attributes:
+        style: 'background: red;'
+    fields:
+        csspartial:          
+            label: CSS Partial
+            type: partial
+            span: full
+            hidden: false
+            path: "~/themes/theme2-mdb/partials/sections-repeater/csspartial.htm"
+
+        label:          
+            label: Section
+            type: section
+            span: full
+        csssection:
+            comment: CSS
+            type: section
+            span: full
+        id:
+            label: Section ID
+            type: text
+            span: left
+
+        classes:
+            label: Section Classes
+            type: text
+            span: right
+        rows:
+            label:  
+            type: repeater
+            icon: fa fa-info
+            prompt: Add a new row.
+            groups: "~/themes/theme2-mdb/config/sections-repeater/rows.yaml"
+                

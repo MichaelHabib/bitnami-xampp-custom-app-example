@@ -1,0 +1,62 @@
+[staticMenu]
+code = "primay-menu"
+==
+
+==
+
+<div class="footer-manu container-wrapper py-2">
+    <div class="container">
+        {% set items = staticMenu.menuItems %}
+        <ul class="nav  py-1">
+            {% for item in items %}
+            <li class="nav-item">
+                <a class="nav-link {{ item.isActive or item.isChildActive ? 'active': '' }}" href="{{ item.url }}">
+                    {{ item.title }}
+                </a>
+            </li>
+            {% endfor %}
+            <li class="nav-item nav-separator">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/')}}/backend">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="footer-copyright container-wrapper ">
+    <div class="container">
+        <div class="row py-1">
+            <div class="col text-center text-md-left">
+                &copy; Copyright {{ this.theme.business_year_established }} - {{ "now"|date("Y") }}  <a href="">{{ this.theme.business_legal_name }}</a>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-right">
+                <div class="muted credit ">
+                    Design & Development by <a href="http://mhessentials.com.au" target="new"> MH Essentials</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{#% partial 'demo/demo-partial_page-attributes' %#}
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script src="{{ [
+'assets/js/popper.min.js',
+'assets/js/bootstrap.min.js',
+'assets/js/mdb.min.js',
+'assets/js/custom.js',
+
+]|theme }}"></script>
+
+{% framework extras %}
+{% scripts %}

@@ -1,0 +1,79 @@
+
+<div class="card contact-info-card h-100">
+    <div class="card-body">
+        <!--<h3 class="card-title">Contact Information</h3>-->
+        {% if this.theme.business_address %}
+        <div class="address">
+            <p>
+                <span class="label">
+                    <span class="fas-wrapper">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </span>
+                    Address: 
+                </span> 
+                <a href='{{ this.theme.sm_google_map }}' target='new'>{{ this.theme.business_address }}</a>
+            </p>
+        </div>
+        {% endif %}
+        {% if this.theme.business_phone %}
+        <div class="phone">
+            <p>
+                <span class="label">
+                    <span class="fas-wrapper">
+                        <i class="fas fa-phone"></i>
+                    </span> 
+                    Phone:
+                </span> 
+                <a href='tel:{{ this.theme.business_phone |replace({' ': '','(': '',')':''}) }}' target='new'>{{ this.theme.business_phone }}</a>
+
+
+            </p>
+        </div>
+        {% endif %}
+        {% if this.theme.business_mobile %}
+        <div class="mobile">
+            <p>
+                <span class="label">
+                    <span class="fas-wrapper">
+                        <i class="fas fa-mobile-alt"></i> 
+                    </span>
+                    Mobile: 
+                </span> 
+                <a href="tel:{{ this.theme.business_mobile |replace({' ': '','(': '',')':''}) }}" target='new'>{{ this.theme.business_mobile }}</a>
+            </p>
+        </div>
+        {% endif %}
+        {% if this.theme.business_trading_hours %}
+        <div class="trading-hours">
+            <span class="label">
+                <span class="fas-wrapper">
+                    <i class="fas fa-clock"></i> 
+                </span>
+                Trading Hours: 
+            </span>
+            <div class="content">
+                {{ this.theme.business_trading_hours | raw}}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="card-footer">
+        {% if this.theme.sm_facebook %}
+        <a class="btn btn-social-icon btn-facebook" href="{{ this.theme.sm_facebook }}" target="new">                            <span class="fa fa-facebook"></span>
+        </a>
+        {% endif %}
+        {% if this.theme.sm_instagram %}
+        <a class="btn btn-social-icon btn-instagram" href="{{ this.theme.sm_instagram }}" target="new">
+            <span class="fa fa-instagram"></span>
+        </a>
+        {% endif %}
+
+        {% if this.theme.sm_google_map %}
+        <a class="btn btn-social-icon btn-google" href="{{ this.theme.sm_googlemap }}" target="new">
+            <span class="fa fa-google"></span>
+        </a>
+        {% endif %}
+
+    </div>
+</div>

@@ -1,0 +1,109 @@
+
+==
+<?php
+
+
+function onStart(){
+
+$partialProperties = [];
+// Load module field values
+$partialProperties['id'] = array_get($this,'module.id','');
+$partialProperties['classes'] = array_get($this,'module.classes','');
+$partialProperties['title'] = array_get($this,'module.title','');
+$partialProperties['subtitle'] = array_get($this,'module.subtitle','');
+$partialProperties['content'] = array_get($this,'module.content','');
+$partialProperties['image'] = array_get($this,'module.image','');
+$partialProperties['link'] = array_get($this,'module.link','');
+$partialProperties['button_classes'] = array_get($this,'module.button_classes','');
+$partialProperties['button_text'] = array_get($this,'module.button_text','');
+
+
+// Load partial arguments.
+//$partialProperties['partialParameter'] = array_get($this,'value.location','default-value');
+$partialProperties['titleTag'] = array_get($this,'module.titleTag','h3');
+$partialProperties['subtitleTag'] = array_get($this,'module.subtitleTag','span');
+
+
+
+// Assign partial properties to 'data' variable.
+$this['data'] = $partialProperties;
+
+}
+?>
+
+==
+<div class='module-contents'>
+
+    <!--If data.link is NOT provided-->
+    {% if not data.link %}
+    <header>
+        {% if data.icon %}
+        <i class='module-icon {{ data.icon }}'> </i>
+        {% endif %}
+
+        {% if data.title %}
+        <{{data.titleTag}} class='module-title'>
+        {{data.title}}
+        </{{data.titleTag }}>
+        {% endif %}
+
+        {% if data.subtitle %}
+        <{{data.subtitleTag}} class='module-subtitle'> {{data.subtitle}}</{{ data.subtitleTag}}>
+        {% endif %}
+    </header>
+
+    {% if data.image %}
+    <div class='module-image'>
+        <img class='img-fluid' src='{{data.image | media| resize(800)}}'/>
+    </div>
+    {% endif %}
+
+    {% if data.content %}
+    <div class='module-content'>
+        {{data.content | raw}}
+    </div>
+    {% endif %}
+
+    <!--If data.link is provided-->
+    {% else %}
+    <header>
+        {% if data.icon %}
+        <i class='module-icon {{ data.icon }}'> </i>
+        {% endif %}
+
+        {% if data.title %}
+        <a href='{{ data.link }}' class='link'>
+            <{{data.titleTag}} class='module-title'>
+            {{data.title}}
+            </{{data.titleTag }}>
+        </a>
+        {% endif %}
+
+        {% if data.subtitle %}
+        <{{data.subtitleTag}} class='module-subtitle'> {{data.subtitle}}</{{ data.subtitleTag}}>
+        {% endif %}
+    </header>
+
+    {% if data.image %}
+    <div class='module-image'>
+        <a href='{{ data.link }}' class='link'>
+            <img class='img-fluid' src='{{data.image | media| resize(800)}}'/>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if data.content %}
+    <div class='module-content'>
+        {{data.content | raw}}
+    </div>
+    {% endif %}
+
+    {% if data.button_text %}
+    <div class='module-footer'>
+        <a class="{{ data.button_classes }}" href='{{ data.link }}'>{{ data.button_text }}</a>
+    </div>
+    {% endif %}
+
+    {% endif %}
+
+</div>

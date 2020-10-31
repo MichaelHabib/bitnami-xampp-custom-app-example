@@ -1,0 +1,49 @@
+
+==
+<?php
+
+
+function onStart(){
+
+$partialProperties = [];
+
+// Load partial arguments.
+//$partialProperties['partialParameter'] = array_get($this,'value.location','default-value');
+$partialProperties['sectionTag'] = array_get($this,'sectionTag','section');
+$partialProperties['sectionClasses'] = array_get($this,'sectionClasses','');
+$partialProperties['rowClasses'] = array_get($this,'rowClasses','');
+$partialProperties['moduleClasses'] = array_get($this,'moduleClasses','');
+
+
+// Assign partial properties to 'data' variable.
+$this['data'] = $partialProperties;
+
+}
+?>
+==
+{% for section in sections %}
+<{{data.sectionTag}} {% if section.id %}id="{{ section.id}}"{% endif %} class="section {{ section.classes}} {{ data.sectionClasses }} 
+{% if ('container' not in section.classes) and ('container' in data.sectionClasses) == false %} container {% endif %}">
+{% for row in section.rows %}
+<div {% if row.id %}id="{{ row.id}}"{% endif %} class="row {{ row.classes }}  {{ data.rowClasses }}">
+    {% for module in row.modules %}
+    <div {% if module.id %}id="{{ module.id}}"{% endif %} class="module {{module._group}} {{module.classes}} {{ data.moduleClasses }}">
+        {% if module.modulepartialsuffix %}
+        {% set modulepartialsuffix = '_'~module.modulepartialsuffix %}
+        {% else %}
+        {% set modulepartialsuffix = '' %}
+        {% endif %}
+
+        {% set partialName = 'sections-repeater/module_'~module._group~modulepartialsuffix~'.htm' %}
+        {% partial partialName module=module %}
+
+</div>
+<!--end .col*-->
+{% endfor %}
+</div>
+<!--end .row-->
+{% endfor %}
+</{{data.sectionTag}}>
+<!--end page-section-->
+
+{% endfor %}

@@ -1,0 +1,13 @@
+title = "location"
+url = "/location/:id?"
+layout = "default"
+is_hidden = 0
+
+[builderDetails locationDetails]
+modelClass = "MichaelHabib\BusinessInformation\Models\Location"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "id"
+notFoundMessage = "Record not found"
+==
+{% component 'locationDetails' %}

@@ -1,0 +1,27 @@
+[staticBreadcrumbs]
+
+[staticPage]
+useContent = 1
+default = 0
+
+[viewBag]
+==
+
+==
+<section class="page-header header_home-page" style="background: center no-repeat url({{ featured_image|media |resize(1200,600,{ mode: 'crop'}) }}); background-size: cover;  ">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="header_content">
+                    {{ header_content |raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-cta">
+        <!--<a target="_blank" href="{{ btn1Link }}" class="btn btn-indigo btn-lg wow fadeInLeft" data-wow-delay="0.2s" rel="nofollow">{{ btn1Text }}</a>-->
+    </div>
+
+
+</section>

@@ -1,0 +1,304 @@
+// custom mdb skin for current project.
+
+/**
+* ********************************************
+* Globals
+* ********************************************
+**/
+@mixin light-typography($color:#fff){
+    a{
+        color: $color;
+        position: relative;
+        &:hover{
+            color: $color;
+
+        }
+        &:hover::before{
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            width: 100%;
+            border-bottom: 2px dotted lighten($primary-color,20%);
+        }
+    }
+}
+a{
+    color:$link-color;
+    &:hover{
+        color: $link-hover-color;
+    }
+
+
+}
+.light-typography{
+    @include light-typography();
+}
+/**
+* ********************************************
+* Navbar
+* ********************************************
+**/
+
+.navbar.style-primary {
+    background-color:  $primary-color;
+    @include media-breakpoint-up(lg){
+        //background-color: transparent;
+        &.top-nav-collapse ,
+        &:hover{
+            background-color:  $primary-color;
+        }   
+    }
+
+    .navbar-brand{
+        order: 1;
+        max-width: 50%;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        @include media-breakpoint-up(lg){
+            margin-right: 2rem;
+        }
+    }
+
+    .navbar-toggler {
+        order: 10;
+    }
+    //General .navbar-nav. styling
+    .navbar-nav {
+        .nav-item {
+            .nav-link{
+                padding: 1rem;
+                &:hover{
+                    background: rgba(0,0,0,0.2);
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .navbar-collapse{
+        order: 20;
+    }
+
+    .navbar-nav.nav-main-items{
+        display: flex;
+        text-align: center;
+        .nav-item{
+            border-bottom:  2px solid rgba(0,0,0,0);
+            &.active{
+                border-color: $secondary-color;
+            }
+            .nav-link {
+                padding: 1rem;
+            }
+
+        }
+
+        @include media-breakpoint-up(lg){
+            text-align: left;
+            flex-direction: row; 
+            align-items: center;
+            flex: 2;
+            margin: 0;
+            .nav-item{
+                flex: 1;
+                max-width: 10vw;
+                text-align: center;
+            }
+            .nav-item.home-icon{
+                flex: 0;
+                display: flex;
+                margin-right: 1rem;
+                a{
+                    display: flex;
+                    flex: 1;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 0.2rem;
+                }
+            }
+            .nav-item.loop-index-1{
+                display: none;
+            }
+        }
+    }
+
+    .navbar-nav.nav-contact-icons{
+        order: 9;
+        display: flex;
+        flex-direction: row;
+
+        .nav-link{
+            .nav-link-content{
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-up(lg){
+            order: 30;
+
+            display: flex;
+            //Disable clicking phone links on desktop
+            .phone, .mobile{
+                &, a{
+                    pointer-events: none;
+                    cursor: default;
+                }
+            }
+            .nav-link{
+                span.nav-link-content{
+                    display: inline-block;
+                    padding-left: 0.4rem;
+                }
+            }
+        }
+    }
+    .navbar-nav.nav-flex-icons{
+        text-align: center;
+        justify-content: space-evenly;
+
+        @include media-breakpoint-up(lg){
+            text-align: left;
+
+        }
+    }
+    .dropdown{
+        // Prevent the down-arrow from wrapping to next line.
+        &.nav-item > a{
+            white-space: nowrap;
+        }
+
+        .dropdown-menu{
+            .dropdown-item{
+                border-left:  4px solid rgba(0,0,0,0);
+                &.active{
+                    border-color: $primary-color;
+                    background: #fff;
+                }
+                &:hover{
+                    border-color: $secondary-color !important;
+                }
+
+                @include media-breakpoint-up(lg){
+                }
+            }
+        }
+    }
+    /*end .dropdown-menu*/
+}
+
+
+/**
+* ********************************************
+* Nav
+* ********************************************
+**/
+.nav{
+    .nav-separator{
+        height: 100%;
+        display: block;
+        padding: 0.5rem 1rem;
+        &::after{
+            content: "|";
+        }
+
+    }
+}
+
+
+/**
+* ********************************************
+*   Custom Cards Styles
+* ********************************************
+**/
+.card{
+
+    /* Stripping away styling such as card-header bg & drop shadow*/
+    &.style-simple{
+        box-shadow: none;
+        background-color: #fafafa;
+
+        .card-header{
+            background-color: transparent;
+        }
+        .card-body{
+            background-color: transparent;
+        }
+        .card-footer{
+            background-color: transparent;
+        }
+
+
+    }
+    /* end .card-simple*/
+
+
+    &.style-primary-icon-title{
+        box-shadow: none;
+        background-color: #fff;
+
+        .card-header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            background: $primary-color;
+            padding: 1rem;
+            &, .link,.card-title,.card-subtitle{
+                color: #fff;
+            }
+            .card-title{
+                padding-top: 1rem;
+            }
+            .card-subtitle{
+
+            }
+            .card-image{
+                margin: -1rem -1rem 0 -1rem;;
+            }
+            .card-icon{
+                padding-bottom: 1rem;
+            }
+        }
+        .card-body{
+        }
+        .card-footer{
+        }
+    }
+    /* end .style-primary-icon-title */
+
+}
+
+
+
+
+/**
+* ********************************************
+* Contact Info Card
+* ********************************************
+**/
+.card.contact-info-card {
+    @include light-typography();
+    .card-body{
+        .card-title{
+
+        }
+        .label{
+            font-weight: bold;
+            .fas-wrapper{
+                width: 1.5rem;
+                display: inline-block;
+                font-weight: normal;
+            }
+        }
+        .trading-hours{
+            .content{
+                padding-left: 1.8rem;
+            }
+        }
+        .card-footer{
+
+        }
+    }
+}

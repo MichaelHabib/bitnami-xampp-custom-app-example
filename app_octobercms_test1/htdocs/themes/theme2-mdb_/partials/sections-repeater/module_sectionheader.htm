@@ -1,0 +1,42 @@
+
+==
+<?php
+
+
+function onStart(){
+
+$partialProperties = [];
+// Load module field values
+$partialProperties['id'] = array_get($this,'module.id','');
+$partialProperties['classes'] = array_get($this,'module.classes','');
+$partialProperties['title'] = array_get($this,'module.title','');
+$partialProperties['subtitle'] = array_get($this,'module.subtitle','');
+
+// Load partial arguments.
+//$partialProperties['partialParameter'] = array_get($this,'value.location','default-value');
+$partialProperties['titleTag'] = array_get($this,'module.titleTag','h2');
+$partialProperties['subtitleTag'] = array_get($this,'module.subtitleTag','span');
+
+// Assign partial properties to 'data' variable.
+$this['data'] = $partialProperties;
+
+}
+?>
+
+==
+<div class='module-contents'>
+
+    <header>
+        {% if data.title %}
+        <{{data.titleTag}} class='section-title'>
+        <i class='section-icon icon-classes'> </i>
+
+        {{data.title}}
+        </{{data.titleTag }}>
+        {% endif %}
+
+        {% if data.subtitle %}
+        <{{data.subtitleTag}} class='section-subtitle'> {{data.subtitle}}</{{ data.subtitleTag}}>
+        {% endif %}
+    </header>
+</div>

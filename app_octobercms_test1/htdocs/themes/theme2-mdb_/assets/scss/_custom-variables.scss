@@ -1,0 +1,16 @@
+$primary-color: hsl(199,60%,30%);
+$primary-color-dark: darken($primary-color, 20%);
+$primary-color-darker: darken($primary-color, 40%);
+$primary-color-hue: hue($primary-color);
+$primary-color-saturation: saturation($primary-color);
+$primary-color-hsl5: hsl($primary-color-hue,$primary-color-saturation,5%);
+$primary-color-hsl10: hsl($primary-color-hue,$primary-color-saturation,10%);
+$primary-color-hsl15: hsl($primary-color-hue,$primary-color-saturation,15%);
+$primary-color-hsl20: hsl($primary-color-hue,$primary-color-saturation,20%);
+$primary-color-hsl30: hsl($primary-color-hue,$primary-color-saturation,30%);
+$secondary-color: #605fd7;
+$secondary-color-dark: darken($secondary-color,20%);
+
+
+$link-color: $primary-color;
+$link-hover-color: darken($primary-color,20%);

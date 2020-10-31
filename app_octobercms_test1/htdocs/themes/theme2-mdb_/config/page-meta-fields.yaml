@@ -1,0 +1,23 @@
+fields:
+    meta_section:
+        tab: Info
+        label: Meta
+        type: section
+    meta_title:
+        tab: Info
+        label: Meta Title
+        type: text
+        size: tiny
+        span: full
+    meta_description:
+        tab: Info
+        label: Meta Description
+        type: textarea
+        size: tiny
+        span: full
+    meta_keywords:
+        tab: Info
+        label: Meta Keywords
+        type: textarea
+        size: tiny
+        span: full

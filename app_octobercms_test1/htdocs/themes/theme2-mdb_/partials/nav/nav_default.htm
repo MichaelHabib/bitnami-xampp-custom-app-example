@@ -1,0 +1,145 @@
+
+==
+
+
+==
+{% import _self as macros %}
+{% macro nav_item(link,content,class,fa_name) %}
+{% if link %}
+<li class="nav-item class">
+    <a class="nav-link waves-effect waves-light" href="{{link}}" target="new"> 
+        <i class="fa fa-{{ fa_name }}"></i>
+        {% if content %}
+        <span class="nav-link-content"> {{ content }} </span>
+        {% endif %} 
+
+    </a>
+</li>
+{% endif %}
+{% endmacro %}
+
+
+<!--           
+Sanitize phone number & suffix with 'tel:'.
+            Note: macro code must be in one line in order to prevent adding special characters such as tab & new line to the outpout!
+-->
+{% macro phoneNumberURL(number) %}{% if number %}{{ 'tel:' ~ number |replace({' ': '','(': '',')':''}) }}{% endif %}{% endmacro %}
+
+{# end Macros #}
+
+{% if nav_id == null %}
+{% set nav_id = staticMenu.name ~ "_" ~ staticMenu.properties.code  %}
+
+{% endif %}
+<!--Navbar-->
+<nav id="{{ nav_id }}" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar smooth-scroll style-primary template-nav-default ">
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{{ url('/') }}">
+            {% if this.theme.business_logo %}
+            <img src="{{ this.theme.business_logo |media |resize(150) }}" alt="{{ this.theme.business_name }} logo"/>
+            {% else %}
+            {{ this.theme.business_name }}
+            {% endif %}
+        </a>
+
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if staticMenu.menuItems %}
+            {% set items = staticMenu.menuItems %}
+            <!-- Links -->
+            <ul class="navbar-nav nav-main-items mr-auto">
+                <li class="nav-item home-icon">
+                    <a class="nav-link" href="{{ url('/') }}">
+                        <i class='fa fa-home fa-2x'></i>
+                    </a>
+                </li>
+
+                {% for item in items %}
+
+                {% set item_li_classes = [
+                'loop-index-'~ loop.index, 
+                item.isActive or item.isChildActive ? 'active' : '' ,
+                item.items ? 'dropdown' : '' ,
+                item.viewBag.isHidden ? 'hidden d-none' : '',
+                item.viewBag.cssClass
+                ] %}
+
+                {% set item_a_classes = [
+                item.items ? 'dropdown-toggle' : '' ,
+                ] %}
+                {% set dropdown_menu_id =  'dropdown-menu-'~(item.title|replace({' ':'-'}))  %}
+
+                <li class="nav-item {{ item_li_classes| join(' ') }}">
+                    <a class="nav-link {{ item_a_classes| join(' ') }}" 
+                       {% if item.items %}
+                       id="{{ dropdown_menu_id }}" 
+                       data-toggle="dropdown"                        
+                       aria-haspopup="true" 
+                       aria-expanded="false"
+                       {% endif %}
+                       href="{{ item.url }}"   
+                       target="{{ item.viewBag.isExternal ? '_new' : '_self' }} ">
+                       {{ item.title}}
+                       {% if item.items %}
+                       <span class="sr-only">(current)</span>
+                        {% endif %}
+                    </a>
+                    <!--Start .dropdown-menu-->
+                    {% if item.items %}
+                    <div class="dropdown-menu dropdown" aria-labelledby="{{ dropdown_menu_id }}">
+                        <!--Start with a link to parent page in dropdown-->
+                        <a class="dropdown-item   
+                           {{ item.isActive ? 'active' : '' }}
+                           " href="{{ item.url }}">{{ item.title }}</a>
+                        <div class="dropdown-divider"></div>
+                        <!--Loop through children items-->
+                        {% for child in item.items %}
+                        <a class="dropdown-item   
+                           {{ child.isActive ? 'active' : '' }}
+                           " href="{{ child.url }}">{{ child.title }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <!--end .dropdown-menu-->
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif%}
+
+
+
+            <ul class="navbar-nav nav-flex-icons">
+                {{ macros.nav_item(this.theme.sm_facebook,'','facebook' ,'facebook') }}
+                {{ macros.nav_item(this.theme.sm_instagram ,'','instagram','instagram') }}
+                {{ macros.nav_item(this.theme.sm_google_map,'' ,'google','google') }}
+            </ul>
+            <!-- Links -->
+
+        </div>
+
+        <ul class="navbar-nav ml-auto nav-contact-icons sm-only">
+            {{ macros.nav_item(this.theme.business_address,'','address','map') }}
+            {{ macros.nav_item(
+                        macros.phoneNumberURL(this.theme.business_phone),
+                        this.theme.business_phone,
+                        'phone',
+                        'phone'
+                        ) }}
+            {{ macros.nav_item(
+                        macros.phoneNumberURL(this.theme.business_mobile),
+                        this.theme.business_mobile,
+                        'mobile',
+                        'mobile'
+                        ) }}
+        </ul>
+    </div>
+
+</nav>
+<!--/.Navbar-->

@@ -1,0 +1,43 @@
+
+==
+==
+
+<section id="contact" class="sections-repeater  container-fluid">  
+    <div class="container">
+        <div class="row">
+            <div class="module sectionheader col text-center">
+                <div class="module-contens">
+                    <header>
+                        <h2 class="section-title">Contact Us</h2>
+                    </header>
+                </div>
+            </div>
+        </div>
+        <!--end .row-->
+        <div class="row row-eq-height">
+            <div class="col-md-8 h">
+                {% if component('contact_form') %}
+                {% component 'contact_form' %}
+                {% else %}
+                Add contact_form component to this page .
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                {% partial 'other/card_contact-info' %}
+
+
+            </div>
+        </div>
+        <!--end .row-->
+
+    </div>
+    <!--end .container-->
+</section>
+<!--end #contact.container-fluid -->
+
+
+{% if this.theme.sm_google_map_iframe %}
+<div class="google-map-iframe-wrapper content-section">
+    <iframe class="google-map-iframe" src="{{ this.theme.sm_google_map_iframe |raw }}" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+{% endif %}

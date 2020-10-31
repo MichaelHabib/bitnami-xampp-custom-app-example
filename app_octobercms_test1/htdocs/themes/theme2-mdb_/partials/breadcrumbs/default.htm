@@ -1,0 +1,17 @@
+{% if breadcrumbs and (breadcrumbs | length > 1) == true%}
+<nav class="breadcrumbs depth-{{ breadcrumbs | length }}" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        {% for breadcrumb in breadcrumbs %}
+        <li class="breadcrumb-item {{ breadcrumb.isActive ? 'active' : '' }}">
+            {% if breadcrumb.isActive == true %}
+            {{ breadcrumb.title }}
+            {% else %}
+            <a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+</nav>
+
+{% endif %}
