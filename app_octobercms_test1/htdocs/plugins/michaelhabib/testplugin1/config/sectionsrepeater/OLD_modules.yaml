@@ -1,0 +1,311 @@
+modules:
+    - Test
+    - Blurb
+sectionheader:
+    name: Section Header
+    description: 
+    icon: icon-file-text-o
+    fields:
+        modulelabel:
+            label: Section Header Module 
+            type: section
+            span: full
+        modulepartialsuffix:
+            label: Module Partial Suffix. 
+            comment: WIll attempt to load partials/sections-repeater/Module_$ModuleName_$ModulePartialSuffix.htm
+            type: text
+            span: left
+        label:
+            label: Label 
+            comment: Label this object for easier identification. For admin use only.
+            type: text
+            span: right
+        csssection:
+            comment: CSS
+            type: section
+            span: full
+        id:
+            label: Module ID
+            type: text
+            span: left
+        classes:
+            label: Module Classes
+            type: text
+            span: right
+        contentsection:
+            comment: Content
+            type: section
+            span: full
+        title:
+            label: Title
+            type: text
+            span: full
+            default: 
+        subtitle:
+            label: Subtitle
+            type: text
+            span: full
+            default: 
+
+textarea:
+    name: Textarea
+    description: 
+    icon: icon-file-text-o
+    fields:
+        modulelabel:
+            label: Text Area Module 
+            type: section
+            span: full
+        modulepartialsuffix:
+            label: Module Partial Suffix. 
+            comment: WIll attempt to load partials/sections-repeater/Module_$ModuleName_$ModulePartialSuffix.htm
+            type: text
+            span: left
+        label:
+            label: Label 
+            comment: Label this object for easier identification. For admin use only.
+            type: text
+            span: right
+        csssection:
+            comment: CSS
+            type: section
+            span: full
+        id:
+            label: Module ID
+            type: text
+            span: left
+        classes:
+            label: Module Classes
+            type: text
+            span: right
+        contentsection:
+            comment: Content
+            type: section
+            span: full
+        content:
+            label: Content
+            type: richeditor
+            size: large
+image:
+    name: Image
+    description: 
+    icon: 
+    fields:
+        modulelabel:
+            label: Image Module 
+            type: section
+            span: full
+        modulepartialsuffix:
+            label: Module Partial Suffix. 
+            comment: WIll attempt to load partials/sections-repeater/Module_$ModuleName_$ModulePartialSuffix.htm
+            type: text
+            span: left
+        label:
+            label: Label 
+            comment: Label this object for easier identification. For admin use only.
+            type: text
+            span: right
+        csssection:
+            comment: CSS
+            type: section
+            span: full
+        id:
+            label: Module ID
+            type: text
+            span: left
+        classes:
+            label: Module Classes
+            type: text
+            span: right
+        contentsection:
+            comment: Content
+            type: section
+            span: full
+        image:
+            label: Image.
+            type: mediafinder
+            mode: image
+            span: left
+        title:
+            label: Title
+            type: text
+            span: right
+            default: 
+        caption:
+            label: Caption
+            type: textarea
+            span: right
+            size: small
+            default: 
+
+            
+blurb:
+    name: Blurb
+    description: Provides title, subtitle, text area and an image fields. 
+    icon: icon-file-text-o        
+    fields:
+        modulelabel:
+            label: Blurb Module 
+            type: section
+            span: full
+        modulepartialsuffix:
+            label: Module Partial Suffix. 
+            comment: WIll attempt to load partials/sections-repeater/Module_$ModuleName_$ModulePartialSuffix.htm
+            type: text
+            span: left
+        label:
+            label: Label 
+            comment: Label this object for easier identification. For admin use only.
+            type: text
+            span: right
+        csssection:
+            comment: CSS
+            type: section
+            span: full
+        id:
+            label: Module ID
+            type: text
+            span: left
+        classes:
+            label: Module Classes
+            type: text
+            span: right
+        contentsection:
+            comment: Content
+            type: section
+            span: full
+        title:
+            label: Title
+            type: text
+            span: full
+            default: 
+        subtitle:
+            label: Subtitle
+            type: text
+            span: full
+            default: 
+        content:
+            label: Content
+            type: richeditor
+            span: left
+            size: large
+        icon:
+            label: Icon CSS Classes.
+            type: text
+            span: right
+        image:
+            label: Image.
+            type: mediafinder
+            mode: image
+            span: right
+        link:
+            label: Link
+            type: text
+            span: left
+        button_text:
+            label: Button Text.
+            type: text
+            span: right
+        button_classes:
+            label: Button CSS Classes.
+            type: text
+            span: left
+list:
+    name: List
+    description: List of items each with a title, sub title and image or icon.
+    icon: icon-file-text-o
+    fields:
+        modulelabel:
+            label: List Module 
+            type: section
+            span: full
+        modulepartialsuffix:
+            label: Module Partial Suffix. 
+            comment: WIll attempt to load partials/sections-repeater/Module_$ModuleName_$ModulePartialSuffix.htm
+            type: text
+            span: left
+        label:
+            label: Label 
+            comment: Label this object for easier identification. For admin use only.
+            type: text
+            span: right
+        csssection:
+            comment: CSS
+            type: section
+            span: full
+        id:
+            label: Module ID
+            type: text
+            span: left
+        classes:
+            label: Module Classes
+            type: text
+            span: right
+        contentsection:
+            comment: Content
+            type: section
+            span: full
+        title:
+            label: Title
+            type: text
+            span: full
+            default: 
+        subtitle:
+            label: Subtitle
+            type: text
+            span: full
+            default: 
+        items:
+            label: Items
+            type: repeater
+            icon: fa fa-info
+            prompt: Add a new list item.
+            groups: "~/themes/theme2-mdb/config/sections-repeater/module_list_list-item.yaml"
+
+
+quote:
+    name: Quote
+    description: Quote item
+    icon: icon-quote-right
+    fields:
+        quote_position:
+            span: auto
+            label: Quote Position
+            type: radio
+            options:
+                left: Left
+                center: Center
+                right: Right
+        quote_content:
+            span: auto
+            label: Details
+            type: textarea
+            
+            
+
+socialmedialinks:
+    name: Social Media Links
+    description: ...\
+    icon: icon-file-text-o
+    fields:
+        title:
+            label: Title
+            type: text
+            required: true
+        website_social:
+            label: Social Networks
+            type: repeater
+            form:
+                fields:
+                    title:
+                        label: Title
+                        type: text
+                        required: true
+                    url:
+                        label: URL
+                        type: text
+                        required: true
+                        comment: Provide account handle or id , depending on the platform.
+                    css_class:
+                        label: CSS Class
+                        type: text

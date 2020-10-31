@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table michaelhabib_businessdetails_businessinformation_general'
+    - builder_table_create_michaelhabib_businessdetails_businessinformation_general.php
+1.0.3:
+    - 'Updated table michaelhabib_businessdetails_businessinformation_general'
+    - builder_table_update_michaelhabib_businessdetails_businessdetails_general.php

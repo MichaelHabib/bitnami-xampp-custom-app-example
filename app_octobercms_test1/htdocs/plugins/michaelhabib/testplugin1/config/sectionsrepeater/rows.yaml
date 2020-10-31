@@ -1,0 +1,13 @@
+row:
+    name: Row
+    description: Standard full width row.
+    icon: fa fa-facebook
+    fields:
+        modules:
+            label: 
+            order: 100
+            type: repeater
+            icon: fa fa-info
+            prompt: Add a new module.
+#            groups: "~/themes/theme2-mdb/config/sections-repeater/modules.yaml"
+

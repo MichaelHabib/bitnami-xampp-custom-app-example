@@ -1,0 +1,48 @@
+fields:
+    address:
+        label: Address
+        span: full
+        type: text
+    phone:
+        label: Phone
+        span: full
+        type: text
+    image2:
+        label: image2
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    gallery:
+        label: Gallery
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        span: full
+        type: mediafinder
+    gallery2:
+        label: gallery2
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    gallery3:
+        label: gallery3
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                image:
+                    label: Image
+                    mode: image
+                    imageWidth: '200'
+                    imageHeight: '200'
+                    span: auto
+                    type: mediafinder

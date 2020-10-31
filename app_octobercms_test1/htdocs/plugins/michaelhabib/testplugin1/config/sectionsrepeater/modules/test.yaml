@@ -1,0 +1,23 @@
+test1:
+    name: test1
+    description: 
+    icon: icon-file-text-o
+    fields:
+        title:
+            label: Title
+            type: text
+            span: full
+            default: 
+        subtitle:
+            label: Subtitle
+            type: text
+            span: full
+            default: 
+        link_button:
+            type: button
+            text: Reload Items
+            css: btn-default oc-icon-refresh
+            loadingIndicator: true
+            dataAttr:
+                model-request: onReloadItems
+

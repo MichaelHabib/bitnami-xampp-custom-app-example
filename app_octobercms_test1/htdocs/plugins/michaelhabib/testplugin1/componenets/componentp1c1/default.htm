@@ -1,0 +1,25 @@
+<div class="{{__SELF_}}">
+
+    <div class="p-4 border-bottom">
+        <div class="title">
+            __SELF__.d 
+        </div>
+        {% for k,v in __SELF__.d %}
+        <div class="p-4 border-bottom">
+            <div class="title p-2 ">
+                __SELF__.d.{{k}}
+            </div>
+            <div class="content p-2">
+                {{ v }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+</div>
+

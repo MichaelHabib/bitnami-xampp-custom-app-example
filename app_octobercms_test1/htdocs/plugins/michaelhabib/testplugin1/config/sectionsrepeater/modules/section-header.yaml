@@ -1,0 +1,15 @@
+sectionheader:
+    name: Section Header
+    description: 
+    icon: icon-file-text-o
+    fields:
+        title:
+            label: Title
+            type: text
+            span: full
+            default: 
+        subtitle:
+            label: Subtitle
+            type: text
+            span: full
+            default: 

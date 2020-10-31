@@ -1,0 +1,11 @@
+plugin:
+    name: 'michaelhabib.businessinformation::lang.plugin.name'
+    description: 'michaelhabib.businessinformation::lang.plugin.description'
+    author: MichaelHabib
+    icon: oc-icon-building
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Locations
+        url: michaelhabib/businessinformation/locations
+        icon: icon-building-o

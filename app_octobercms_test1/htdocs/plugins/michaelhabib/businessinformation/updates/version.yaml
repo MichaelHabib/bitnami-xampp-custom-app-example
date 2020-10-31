@@ -1,0 +1,35 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table michaelhabib_businessinformation_general'
+    - builder_table_create_michaelhabib_businessinformation_general.php
+1.0.3:
+    - 'Updated table michaelhabib_businessinformation_general'
+    - builder_table_update_michaelhabib_businessinformation_general.php
+1.0.4:
+    - 'Created table michaelhabib_businessinformation_location'
+    - builder_table_create_michaelhabib_businessinformation_location.php
+1.0.5:
+    - 'Updated table michaelhabib_businessinformation_location'
+    - builder_table_update_michaelhabib_businessinformation_location.php
+1.0.6:
+    - 'Updated table michaelhabib_businessinformation_location'
+    - builder_table_update_michaelhabib_businessinformation_location_2.php
+1.0.7:
+    - 'Updated table michaelhabib_businessinformation_location'
+    - builder_table_update_michaelhabib_businessinformation_location_3.php
+1.0.8:
+    - 'Updated table michaelhabib_businessinformation_location'
+    - builder_table_update_michaelhabib_businessinformation_location_4.php
+1.0.9:
+    - 'Updated table michaelhabib_businessinformation_location'
+    - builder_table_update_michaelhabib_businessinformation_location_5.php
+1.0.10:
+    - 'Updated table michaelhabib_businessinformation_location'
+    - builder_table_update_michaelhabib_businessinformation_location_6.php
+1.0.11:
+    - 'Created table michaelhabib_businessinformation_location_image_for_gallery'
+    - builder_table_create_michaelhabib_businessinformation_location_image_for_gallery.php
+1.0.12:
+    - 'Updated table michaelhabib_businessinformation_location_image_for_gallery'
+    - builder_table_update_michaelhabib_businessinformation_location_image_for_gallery.php
